@@ -245,8 +245,10 @@ export const findPetByDistributorID = (req, res) => {
     const q = "SELECT * FROM pet WHERE disID = ?";
     db.query(q, [disID], (err, data) => {
         if (err) {
-            console.error("Error fetching pets by distributor ID:", err);
-            return res.status(500).json(err);
+            console.error("Database error:", err);
+           // console.error("Error fetching pets by distributor ID:", err);
+            //return res.status(500).json(err);
+            return res.status(500).json({ message: "An error occurred while retrieving pets." });
         }
 
         if (data.length === 0) {

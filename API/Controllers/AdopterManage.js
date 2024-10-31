@@ -58,33 +58,38 @@ export const updateAdopter = (req, res) => {
 // Find adopters by gender, location, reason for adoption, or find all adopters
 export const findAdopters = (req, res) => {
     const { searchBy, searchValue } = req.params;
-    let q;
+    let query;
 
     if (searchBy === 'all') {
-        q = "SELECT * FROM adopter";
+        query = "SELECT * FROM adopter";
     } else {
         switch (searchBy) {
-            case 'id':
-                q = "SELECT * FROM adopter WHERE adoID = ?";
+            case 'adoID':
+                query = "SELECT * FROM adopter WHERE adoID = ?";
                 break;
-            case 'gender':
-                q = "SELECT * FROM adopter WHERE adoGender = ?";
+            case 'userID':
+                query = "SELECT * FROM adopter WHERE userID = ?";
                 break;
-            case 'location':
-                q = "SELECT * FROM adopter WHERE adoLocation = ?";
+            case 'adoGender':
+                query = "SELECT * FROM adopter WHERE adoGender = ?";
                 break;
-            case 'reason':
-                q = "SELECT * FROM adopter WHERE reasonForAdoption = ?";
+            case 'adoLocation':
+                query = "SELECT * FROM adopter WHERE adoLocation = ?";
+                break;
+            case 'reasonForAdoption':
+                query = "SELECT * FROM adopter WHERE reasonForAdoption = ?";
                 break;
             default:
                 return res.status(400).json({ error: "Invalid search criteria" });
         }
     }
 
-    db.query(q, searchBy === 'all' ? [] : [searchValue], (err, data) => {
+    const params = searchBy === 'all' ? [] : [searchValue];
+    
+    db.query(query, params, (err, data) => {
         if (err) {
             console.error("Database query failed:", err);
-            return res.status(500).json({ error: "Internal Server Error", details: err });
+            return res.status(500).json({ error: "Internal Server Error" });
         }
         if (data.length === 0) {
             return res.status(404).json({ message: "No adopters found" });
@@ -92,4 +97,5 @@ export const findAdopters = (req, res) => {
         return res.status(200).json(data);
     });
 };
+
 

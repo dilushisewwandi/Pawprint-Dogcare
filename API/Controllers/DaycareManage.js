@@ -1,104 +1,90 @@
 import { db } from "../Connect.js";
 
-//add a daycare
+// Add a daycare
 export const addDaycare = (req, res) => {
-    const {userID,dcID,dcName,dcLocation,dcPhone,dcEmail,openDays,openTimes,noOfStaffMembers,amenitiesOffered,safetyFeatures } = req.body;
+    const { userID, dcName, dcLocation, dcPhone, dcEmail, openDays, openTimes, noOfStaffMembers, amenitiesOffered, safetyFeatures } = req.body;
 
-    const q = "INSERT INTO daycare(`userID`, `dcID`, `dcName`,`dcLocation`,`dcPhone`,`dcEmail`,`openDays`,`openTimes`,`noOfStaffMembers`,`amenitiesOffered`,`safetyFeatures`) VALUES (?)";
-    const values = [userID,dcID,dcName,dcLocation,dcPhone,dcEmail,openDays,openTimes,noOfStaffMembers,amenitiesOffered,safetyFeatures];
+    const q = "INSERT INTO daycare(`userID`, `dcName`, `dcLocation`, `dcPhone`, `dcEmail`, `openDays`, `openTimes`, `noOfStaffMembers`, `amenitiesOffered`, `safetyFeatures`) VALUES (?)";
+    const values = [userID, dcName, dcLocation, dcPhone, dcEmail, openDays, openTimes, noOfStaffMembers, amenitiesOffered, safetyFeatures];
 
     db.query(q, [values], (err, data) => {
         if (err) {
             console.error('Error inserting daycare:', err); 
-            return res.status(500).json({ message: 'Error inserting daycare', error: err });
+            return res.status(500).json({ success: false, message: 'Error inserting daycare', error: err });
         }
-        return res.status(201).json("Daycare has been added successfully.");
+        return res.status(201).json({ success: true, message: "Daycare has been added successfully.", data });
     });
 };
 
-//update a daycare
+
+// Update a daycare
 export const updateDaycare = (req, res) => {
-    const { userID, dcName, dcLocation, dcPhone, dcEmail, openDays, openTimes, noOfStaffMembers, amenitiesOffered, safetyFeatures } = req.body;
+    const {dcName, dcLocation, dcPhone, dcEmail, openDays, openTimes, noOfStaffMembers, amenitiesOffered, safetyFeatures } = req.body;
     const dcID = req.params.id;
 
-    // Validate required fields
-    if (!userID || !dcName || !dcLocation || !dcPhone || !dcEmail || !openDays || !openTimes || !noOfStaffMembers || !amenitiesOffered || !safetyFeatures) {
-        return res.status(400).json({ error: "All fields are required" });
-    }
+    const q = `UPDATE daycare SET dcName = ?, dcLocation = ?, dcPhone = ?, dcEmail = ?, openDays = ?, openTimes = ?, noOfStaffMembers = ?, amenitiesOffered = ?, safetyFeatures = ? WHERE dcID = ?`;
 
-    // Validate phone number
-    if (!dcPhone.match(/^\d{10}$/)) {
-        return res.status(400).json({ error: "Invalid phone number. It should be 10 digits." });
-    }
-
-    // Validate integer fields
-    if (isNaN(parseInt(dcPhone)) || isNaN(parseInt(noOfStaffMembers))) {
-        return res.status(400).json({ error: "Phone number and number of staff members must be valid integers." });
-    }
-
-    console.log("Updating daycare with ID:", dcID);
-    console.log("Update values:", { userID, dcName, dcLocation, dcPhone, dcEmail, openDays, openTimes, noOfStaffMembers, amenitiesOffered, safetyFeatures });
-
-    const q = `UPDATE daycare SET userID = ?, dcName = ?, dcLocation = ?, dcPhone = ?, dcEmail = ?, openDays = ?, openTimes = ?, noOfStaffMembers = ?, amenitiesOffered = ?, safetyFeatures = ? WHERE dcID = ?`;
-
-    db.query(q, [userID, dcName, dcLocation, dcPhone, dcEmail, openDays, openTimes, noOfStaffMembers, amenitiesOffered, safetyFeatures,dcID], (err, data) => {
+    db.query(q, [ dcName, dcLocation, dcPhone, dcEmail, openDays, openTimes, noOfStaffMembers, amenitiesOffered, safetyFeatures, dcID], (err, data) => {
         if (err) {
             console.error("Database query failed:", err);
-            return res.status(500).json({ error: "Internal Server Error", details: err });
+            return res.status(500).json({ success: false, message: "Internal Server Error", error: err });
         }
 
         if (data.affectedRows === 0) {
-            return res.status(404).json({ error: "No daycare found with the specified ID." });
+            return res.status(404).json({ success: false, message: "No daycare found with the specified ID." });
         }
 
-        return res.status(200).json("Daycare details have been updated successfully.");
+        return res.status(200).json({ success: true, message: "Daycare details have been updated successfully.", data });
     });
 };
 
-//delete a daycare
+
+// Delete a daycare
 export const deleteDaycare = (req, res) => {
-    const daycareId = req.params.id;
+    const dcID = req.params.id;
 
     const q = "DELETE FROM daycare WHERE dcID = ?";
-
-    db.query(q, [daycareId], (err, data) => {
-        if (err) return res.status(500).json(err);
-        return res.status(200).json("Daycare has been deleted successfully.");
+    db.query(q, [dcID], (err, data) => {
+        if (err) return res.status(500).json({ success: false, message: "Error deleting daycare", error: err });
+        if (data.affectedRows === 0) {
+            return res.status(404).json({ success: false, message: "No daycare found with the specified ID." });
+        }
+        return res.status(200).json({ success: true, message: "Daycare has been deleted successfully." });
     });
 };
+
 
 // Find daycare by ID
 export const findDaycareById = (req, res) => {
-    const daycareId = req.params.id;
+    const dcID = req.params.id;
 
     const q = "SELECT * FROM daycare WHERE dcID = ?";
-
-    db.query(q, [daycareId], (err, data) => {
+    db.query(q, [dcID], (err, data) => {
         if (err) {
             console.error('Error finding daycare by ID:', err);
-            return res.status(500).json({ message: 'Error finding daycare by ID', error: err });
+            return res.status(500).json({ success: false, message: 'Error finding daycare by ID', error: err });
         }
         if (data.length === 0) {
-            return res.status(404).json({ message: 'No daycare found with the specified ID' });
+            return res.status(404).json({ success: false, message: 'No daycare found with the specified ID' });
         }
-        return res.status(200).json(data[0]);
+        res.status(200).json(data); // Send the fetched data as a JSON response
     });
 };
-// Find daycare by userID
+
+//find daycare by userID
 export const findDaycareByUserId = (req, res) => {
     const userID = req.params.id;
 
     const q = "SELECT * FROM daycare WHERE userID = ?";
-
     db.query(q, [userID], (err, data) => {
         if (err) {
-            console.error('Error finding daycare by userID:', err);
-            return res.status(500).json({ message: 'Error finding daycare by user ID', error: err });
+            console.error('Error finding daycare by User ID:', err);
+            return res.status(500).json({ success: false, message: 'Error finding daycare by User ID', error: err });
         }
         if (data.length === 0) {
-            return res.status(404).json({ message: 'No daycare found with the specified user ID' });
+            return res.status(404).json({ success: false, message: 'No daycare found with the specified User ID' });
         }
-        return res.status(200).json(data[0]);
+        res.status(200).json(data); // Send the fetched data as a JSON response
     });
 };
 
