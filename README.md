@@ -8,7 +8,7 @@
 - [Usage](#usage)
 - [Installation](#installation)
 - [Contact](#contact)
-- [Future Enhancements] (#future-enhancements)
+
 
 ## Description
 Pawprint is a comprehensive web-based application designed to meet the diverse needs of dog owners, adopters, distributors, and veterinarians. The app facilitates dog adoption, daycare bookings, and veterinary appointments, providing users with an intuitive and responsive interface to manage and track all aspects of pet care seamlessly. With a modern tech stack, Pawprint brings together various services in one place, ensuring a streamlined experience for users as they navigate the essential services needed for their furry companions.
