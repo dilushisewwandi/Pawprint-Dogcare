@@ -1,0 +1,411 @@
+/* .home-container {
+    position: relative;
+  }
+  
+
+  
+  .content-1{
+    position: absolute;
+    top: 150px;
+    right: 20px;
+    text-align: right;
+    font-family:calibri;
+    color:black;
+ 
+    font-weight: 1000;
+  }
+  
+   */
+
+
+  .home-page {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero Section Styles */
+.hero-container {
+  height: 700px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-content {
+  text-align: right;
+  margin-right: 50px;
+}
+
+.hero-content h1 {
+  font-family: 'Calibri', sans-serif;
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: fadeInDownWithMargin 2.5s forwards;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  animation: fadeInUpWithMargin 2.5s forwards;
+}
+
+@keyframes fadeInDownWithMargin {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUpWithMargin {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Adopt Section Styles */
+.adopt-section {
+  height: auto;
+  padding: 50px;
+  background-color: white;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+.adopt-section h2 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: 'Arial', sans-serif;
+  margin-top: 10px;
+}
+
+.adopt-section p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 600px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.adopt-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adopt-cards {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.adopt-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 50%; /* Circular cards */
+  width: 300px;
+  height: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  margin-top: 20px;
+}
+
+.adopt-card:hover {
+  transform: scale(1.05);
+}
+
+.adopt-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Adopt Button Styles */
+.adopt-btn {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #2cbbc3;
+  color: white;
+  border: none;
+  width: 15%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-end; /* Align button to the right */
+}
+
+/* About Section Styles */
+.about-section {
+  padding: 50px;
+  background-color: white;
+  text-align: center;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100vw;
+  box-sizing: border-box;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 30px;
+  font-family: 'Arial', sans-serif;
+  margin-top: 10px;
+}
+
+.about-section p {
+  font-size: 1.2rem;
+  color: #333;
+  max-width: 600px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  gap: 20px;
+  max-width: 100vw;
+}
+
+.introduction-section,
+.mission-section,
+.why-section,
+.services-section {
+  flex-basis: calc(50% - 20px); /* Two cards per row */
+  flex-grow: 1; /* Allow sections to grow equally */
+  max-width: 500px; /* Maximum width for each section */
+  min-height: 350px; /* Set minimum height to keep sections uniform */
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+.introduction-section:hover,
+.mission-section:hover,
+.why-section:hover,
+.services-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.introduction-section h2,
+.mission-section h2,
+.why-section h2,
+.services-section h2 {
+  margin-top: 20px;
+  color: #333;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.introduction-section p,
+.mission-section p,
+.why-section p,
+.services-section p {
+  color: #555;
+  font-size: 0.9rem;
+  text-align: justify;
+  line-height: 1.3;
+}
+
+.about-section ul {
+  color: #555;
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.about-section li {
+  font-size: 0.9rem;
+  line-height: 1.3;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+/* 
+/* Contact Container */
+.contact-container {
+  padding: 50px;
+  background-color: white;
+}
+
+/* Contact Section */
+.contact-section {
+  max-width: 1200px; /* Limit width for larger screens */
+  margin: 0 auto; /* Center the section */
+}
+
+/* Contact Section Heading */
+.contact-section h2 {
+  font-size: 2.5rem; /* Size similar to the adopt section */
+  color: #333; /* Heading color */
+  font-weight: bold;
+  text-align: center; /* Center the heading */
+  margin-bottom: 30px; /* Space below the heading */
+}
+
+/* Contact Content */
+.contact-content {
+  display: flex; /* Flexbox for layout */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center vertically */
+}
+
+/* Contact Details */
+.contact-details {
+  flex: 1; /* Left side takes up equal space */
+  padding-right: 20px; /* Space on the right */
+}
+
+/* Contact Description */
+.contact-description {
+  font-size: 1.2rem; /* Font size */
+  color: #555; /* Text color */
+  line-height: 1.5; /* Line height for readability */
+  margin-bottom: 20px; /* Space below the description */
+}
+
+/* Contact Info */
+.contact-info {
+  font-size: 1.2rem; /* Font size */
+  color: #555; /* Text color */
+  line-height: 1.5; /* Line height for readability */
+}
+
+/* Image Frame */
+.contact-image-frame {
+  flex: 1; /* Right side takes up equal space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image */
+.contact-image {
+  width: 450px; /* Adjust size as needed */
+  height: 300px; /* Rectangular shape */
+  border-radius: 10px; /* Slight rounding for rectangle corners */
+  object-fit: cover; /* Cover the entire area */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+
+/* Services Container */
+.service-container {
+  padding: 50px;
+  background-color: white;
+}
+
+/* Services Section */
+.service-section {
+  max-width: 1200px; /* Limit width for larger screens */
+  margin: 0 auto; /* Center the section */
+}
+
+/* Services Section Heading */
+.service-section h2 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Services Content */
+.service-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row; /* Image on the left and content on the right */
+}
+
+/* Image Frame */
+.service-image-frame {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image */
+.service-image {
+  width: 500px; /* Adjust size as needed */
+  height: 400px; /* Rectangular shape */
+  border-radius: 10px;
+  object-fit: cover;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+/* Services Details */
+.service-details {
+  flex: 1;
+  padding-left: 20px; /* Space between image and details */
+}
+
+/* Services Description */
+.service-description {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Services Button */
+.service-button {
+  background-color:#2cbbc3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  width: 40%;
+}
+.button:hover {
+  background-color: #239ca7;
+}
+

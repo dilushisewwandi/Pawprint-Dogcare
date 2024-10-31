@@ -1,0 +1,78 @@
+.hp-hero-section {
+  background-image: url('../Assets/vet1.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+
+  height: 600px;
+}
+
+.hp-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  align-content: center;
+  border-radius: 1rem;
+  margin-top: 100px;
+  padding: 30px;
+}
+
+.hp-hero-section h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+color: white;
+}
+
+.hp-hero-section p {
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: center;
+  color:#fff
+}
+
+   .all-pet-profiles-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 100px;
+    background-color: #333;
+}
+
+.pet-profile-card {
+    /* width: calc(20% - 20px); */
+    width:1300px;
+    background-color:#fff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 400px;
+}
+
+.pet-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    margin-right: 40px;
+}
+
+.pet-details, .distributor-details, .health-card-details, .vet-details, .vaccine-details {
+    width:300px;
+    text-align: justify;
+    margin-left: 70px;
+    background-color: white;
+}
+
+/* h2, h3 {
+    margin-top: 0;
+} */
+.pet-details h2{
+  font-size: 40px;
+ }

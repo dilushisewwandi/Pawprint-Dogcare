@@ -1,0 +1,63 @@
+.ado-regi-card {
+    margin-top: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+  }
+  
+  .ado-regi-card-body {
+    padding: 20px;
+    width: 500px;
+  }
+  
+  .ado-regi-form-name {
+    color: black;
+    width: 300px;
+    text-align: left;
+  }
+  
+  label {
+    display: inline-block; 
+    width: 120px; 
+    text-align: left; 
+    margin-right: 350px; 
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #2cbbc3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* button[type="submit"]:hover {
+    background-color: #FFA836;
+  }
+   */
+  .register-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2cbbc3;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  

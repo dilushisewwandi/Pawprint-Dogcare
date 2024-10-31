@@ -1,0 +1,121 @@
+
+   .footer {
+    background-color: black;
+    color: #fff;
+    padding: 40px 0;
+  }
+  
+  .footer-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px; /* Add space on both sides */
+  }
+  
+  .footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Spread the columns evenly */
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .footer-column {
+    flex: 1;
+    min-width: 200px;
+    text-align: left;
+  }
+  
+  .footer-title {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 0;
+    display: block;
+    transition: color 0.3s ease;
+  }
+  
+  /* .footer-link:hover {
+    color: #f9a825;
+  }
+   */
+  .footer-contact {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .footer-email {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-email:hover {
+    color:#2cbbc3;
+  }
+  
+  /* Sign Up Button Styling */
+  .signup-btn {
+    background-color:#2cbbc3;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* .signup-btn:hover {
+    background-color: #d4a020;
+  }
+   */
+  /* Footer Bottom */
+  .footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding: 20px 0;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  /* Ensure equal right and left spacing */
+  @media (min-width: 1200px) {
+    .footer-container {
+      padding: 0 80px; /* Larger screen padding */
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-row {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer-column {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+  

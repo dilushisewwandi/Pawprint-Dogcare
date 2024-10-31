@@ -1,0 +1,104 @@
+
+.dc-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #333;
+    padding: 40px;
+  }
+  
+  /* General form container */
+  .dc-registration-card {
+    max-width: 550px;
+    width: 100%;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Form title */
+  .dc-regi-form-name {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Welcome message styling */
+  .dc-welcome-message {
+    font-size: 40px;
+    font-weight: bold;
+    color: #2cbbc3;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #333;
+  }
+  
+  /* Form group styling */
+  .dc-form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 30px;
+    width: 100%;
+  }
+  
+  /* Label styling */
+  .dc-form-group label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+    text-align: left;
+    margin-right: 10px;
+    width: 300px;
+  }
+  
+  /* Input styling */
+  .dc-form-group input[type="text"],
+  .dc-form-group input[type="email"],
+  .dc-form-group input[type="password"],
+  .dc-form-group input[type="number"],
+  .dc-form-group select {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-left: 10px;
+  }
+  
+  /* Input focus state */
+  .dc-form-group input:focus,
+  .dc-form-group select:focus {
+    border: 1px solid #2cbbc3;
+    background-color: #fff;
+  }
+  
+  /* Submit button styling */
+  .dc-regi-submit {
+    background-color: #2cbbc3;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  /* Submit button hover state */
+  .dc-regi-submit:hover {
+    background-color: #259ba6;
+  }
+  

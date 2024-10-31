@@ -1,0 +1,102 @@
+
+.dis-form-container {
+  display: flex;
+  flex-direction: column; /* Align the welcome message above the card */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+  background-color: #333; /* Dark background */
+  padding: 40px; /* Padding for container */
+}
+
+/* General form container */
+.dis-registration-card {
+  max-width: 550px; /* Limit form width to match the other form */
+  width: 100%; /* Ensure form takes full width up to max-width */
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+/* Form title */
+.dis-regi-form-name {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+/* Welcome message styling */
+.dis-welcome-message {
+  font-size: 40px;
+  font-weight: bold;
+  color: #2cbbc3;
+  margin-bottom: 20px; /* Space between welcome message and the card */
+  text-align: center;
+}
+
+/* Form group styling */
+.dis-form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 30px; /* Consistent padding on both sides */
+  width: 100%; /* Ensure full width */
+}
+
+/* Label styling */
+.dis-form-group label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #555;
+  text-align: left;
+  margin-right: 10px; /* Adjust for consistent spacing */
+  width: 300px;
+}
+
+/* Input styling */
+.dis-form-group input[type="text"],
+.dis-form-group input[type="email"],
+.dis-form-group input[type="password"],
+.dis-form-group input[type="number"],
+.dis-form-group select {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: border 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-left: 10px; /* Consistent margin with other form */
+}
+
+/* Input focus state */
+.dis-form-group input:focus,
+.dis-form-group select:focus {
+  border: 1px solid #2cbbc3;
+  outline: none;
+}
+
+/* Submit button styling */
+.dis-regi-submit[type="submit"] {
+  width: calc(100% - 60px); /* Full width minus equal padding on both sides */
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #2cbbc3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 30px; /* Consistent left and right margins */
+}
+
+/* Button hover state */
+.dis-regi-submit[type="submit"]:hover {
+  background-color: #1a8b8f;
+}

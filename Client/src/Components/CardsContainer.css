@@ -1,0 +1,36 @@
+
+@keyframes slideInRight {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  
+  .cards-container {
+    
+    display: flex;
+    justify-content: space-between; 
+}
+
+.card {
+    top: 100px;
+    left: 20px;
+    right: 20px;
+    width: 250px;
+    height: 55px;
+    flex: 0 0 auto; /* Allow the card to grow and shrink to fit its container */
+    margin: 2px; /* Add margin around each card */
+    animation: slideInRight 1s ease forwards;
+}
+
+.col-md-2 {
+    flex: 1; /* Adjust the flex basis to set the width of each card */
+    max-width: none; /* Remove the maximum width limitation */
+
+}
+

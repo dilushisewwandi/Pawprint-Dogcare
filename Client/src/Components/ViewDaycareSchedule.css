@@ -1,0 +1,130 @@
+/* General container for the page */
+.view-daycare-schedule {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #333; /* Dark background */
+    padding: 40px;
+}
+
+/* Card style for the schedule search */
+.view-daycare-schedule .schedule-card {
+    max-width: 800px;
+    width: 100%;
+    background-color: #fff; /* White card for contrast */
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+    margin: 0 auto;
+}
+
+/* Title for the form */
+.view-daycare-schedule .schedule-card h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Form group container for label and input */
+.view-daycare-schedule .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Input label styling */
+.view-daycare-schedule .form-group label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+    width: 150px;
+    margin-left: 20px;
+    margin-right: 60px;
+}
+
+/* Input field styling */
+.view-daycare-schedule .form-group input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    margin-left: 20px;
+    margin-right: 80px;
+}
+
+/* Input focus effect */
+.view-daycare-schedule .form-group input:focus {
+    border-color: #2cbbc3;
+    outline: none;
+}
+
+/* Button styling within the form-group */
+.view-daycare-schedule .form-group button {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #2cbbc3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    align-self: center;
+    margin-left: 20px;
+    margin-right: 80px;
+}
+
+/* Button hover effect */
+.view-daycare-schedule .form-group button:hover {
+    background-color: #1a8b8f;
+}
+
+/* Error message styling */
+.view-daycare-schedule .error {
+    color: #d9534f;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Schedule list section */
+.view-daycare-schedule .schedules-list {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+    justify-content: center;
+}
+
+/* Styling for individual schedule cards */
+.view-daycare-schedule .schedules-list li {
+    flex: 1 1 calc(50% - 20px); /* Two cards per row */
+    margin: 10px 0; /* Space above and below each card */
+    padding: 15px;
+    background-color: #f8f8f8;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+}
+
+.view-daycare-schedule .schedules-list li p {
+    margin: 6px 0;
+}
+
+.view-daycare-schedule .schedules-list li p strong {
+    color: #333;
+    font-weight: bold;
+}

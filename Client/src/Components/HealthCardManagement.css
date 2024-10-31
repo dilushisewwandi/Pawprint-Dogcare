@@ -1,0 +1,123 @@
+
+.h-card-management-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #555;
+    padding: 40px;
+}
+
+/* Form card styling */
+.h-card-management-container form {
+    width: 100%;
+    max-width: 550px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Form title */
+.h-card-management-container h2 {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2cbbc3;
+}
+
+/* Form row styling: Stack label and input */
+.h-card-form-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 0 30px;
+    width: 100%;
+}
+
+/* Label styling */
+.h-card-form-row label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Input, select, and textarea styling */
+.h-card-form-row input,
+.h-card-form-row select,
+.h-card-form-row textarea {
+    width: 100%; /* Ensures all input fields are the same width */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific height for textarea */
+.h-card-form-row textarea {
+    height: 100px; /* Adjust the height as needed */
+    resize: vertical; /* Allows vertical resizing */
+}
+
+/* Focus state for inputs */
+.h-card-management-container input:focus,
+.h-card-management-container select:focus,
+.h-card-management-container textarea:focus {
+    border: 1px solid #2cbbc3;
+    outline: none;
+}
+
+/* Submit button styling */
+.h-card-management-container button[type="submit"] {
+    width: calc(100% - 60px);
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #2cbbc3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 30px;
+}
+
+/* Button hover state */
+.h-card-management-container button[type="submit"]:hover {
+    background-color: #1a8b8f;
+}
+
+/* Health Card styling */
+.h-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Health card header */
+.h-card-header {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2cbbc3;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Health card details */
+.h-card-details p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+}

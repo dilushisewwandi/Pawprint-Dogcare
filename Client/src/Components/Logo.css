@@ -1,0 +1,18 @@
+.logo-image{
+    position: absolute;
+    top: 1px;
+    left: 15px;
+    width: 150px;
+    height: auto;
+    opacity: 0; 
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0; /* Start with no opacity */
+    }
+    to {
+      opacity: 1; /* End with full opacity */
+    }
+  }

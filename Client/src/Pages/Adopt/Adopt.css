@@ -1,0 +1,18 @@
+.adopt-container {
+    position: relative;
+  }
+  
+  .adopt-background {
+    background-size: cover;
+    /* background-color: #fff2de; */
+    background-color:white;
+    background-position: center;
+    height: 100vh; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: black;
+  }
+  
+  
+  

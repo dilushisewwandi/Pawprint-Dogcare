@@ -1,0 +1,156 @@
+
+.signup-page-container {
+  display: flex;
+  height: 100vh; /* Full height */
+  position: relative;
+  background-image: url('../Assets/find.jpg'); /* Path to your background image */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Add background overlay with opacity */
+.signup-page-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Add opacity to the background image */
+  z-index: 1;
+}
+
+/* Ensure all sections are above the overlay */
+.signup-hero-section, .signup-form-section {
+  position: relative;
+  z-index: 2;
+}
+
+/* Left section: Hero section */
+.signup-hero-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center; /* Center align the text */
+}
+
+.signup-hero-content {
+  max-width: 400px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Animation for h1 and p */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure h1, p, and button are vertically centered in the hero content */
+.signup-hero-content h1 {
+  font-size: 70px;
+  margin-bottom: 15px;
+  color: #fff;
+  white-space: nowrap;
+  animation: fadeInUp 1s ease-in-out forwards; /* Apply animation */
+}
+
+.signup-hero-content p {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #ddd;
+  animation: fadeInUp 1.5s ease-in-out forwards; /* Delay the p animation slightly */
+}
+
+/* Button styling */
+.get-started-button {
+  padding: 12px 30px;
+  font-size: 16px;
+  background-color: #2cbbc3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+
+/* Right section: Signup form */
+.signup-form-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Signup form styling */
+.signup-card {
+  width: 350px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.signup-card-body {
+  text-align: center;
+}
+
+.form-name {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  width: 100%;
+  max-width: 330px;
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 40px;
+}
+
+/* Change border color to blue when input is focused (clicked) */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+select:focus{
+  outline: none;
+  border-color:#2cbbc3;; /* Blue border when clicked */
+}
+
+p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+p a {
+  color: #2cbbc3;
+  text-decoration: none;
+}
+
+button {
+  margin-top: 10px;
+}
