@@ -1,5 +1,5 @@
 
-# DogCare Project
+# Pawprint Project
 
 ## Table of Contents
 - [Description](#description)
@@ -9,31 +9,53 @@
 - [Installation](#installation)
 - [Contact](#contact)
 
-
 ## Description
-Pawprint is a comprehensive web-based application designed to meet the diverse needs of dog owners, adopters, distributors, and veterinarians. The app facilitates dog adoption, daycare bookings, and veterinary appointments, providing users with an intuitive and responsive interface to manage and track all aspects of pet care seamlessly. With a modern tech stack, Pawprint brings together various services in one place, ensuring a streamlined experience for users as they navigate the essential services needed for their furry companions.
+Pawprint is a comprehensive web-based application designed to meet the diverse needs of dog owners(distributors), adopters, daycares, and veterinarians. The app facilitates dog adoption, daycare bookings, and veterinary appointments, providing users with an intuitive and responsive interface to manage and track all aspects of pet care seamlessly. With a modern tech stack, Pawprint brings together various services in one place, ensuring a streamlined experience for users as they navigate the essential services needed for their furry companions.
 
 ## Features
-- **Pet Adoption:** Browse, search, and adopt pets. Distributors and adopters can communicate adoption requests through the platform.
-- **Daycare Management:** Users can book and manage daycare services, including selecting open times, amenities, and safety features.
+- **Pet Adoption:** Browse, and adopt pets. Distributors and adopters can communicate adoption requests through the platform.
+- **Daycare Management:** Users can book daycares.
 - **Vet Appointment Management:** Schedule vet appointments and manage pet health records, vaccination details, and more.
-- **User Roles:** Separate user roles for Admin, Distributor, Adopter, and Veterinarian, each with tailored functionality.
+- **User Roles:** Separate user roles for Admin, Distributor, Adopter, Daycare and Veterinarian, each with tailored functionality.
 - **Secure Login and Registration:** JWT-based authentication to ensure secure access.
 
 ## Technologies Used
 - **Frontend:** React, HTML, CSS
 - **Backend:** Node.js, Express.js
--**Authentication:** JWT (JSON Web Tokens)
+- **Authentication:** JWT (JSON Web Tokens)
 - **Database:** MySQL
 - **Environment Variables:** Managed through `.env` file for security.
 
 ## Usage
--**Admin Panel:** Accessible to administrators for managing user accounts, monitoring adoption requests, and overseeing daycare and vet services.
--**Distributor Panel:** Allows pet distributors to register pets for adoption, manage requests, and respond to adopters.
--**Adopter Panel:** Users looking to adopt a pet can search, view details, and request adoptions.
--**Vet Panel:** Veterinary professionals can track pet health, vaccination status, and appointment schedules.
--**Daycare Panel:** Daycare providers can manage their services, track reservations, and monitor pet activities while in their care, facilitating effective communication with pet owners.
 
+### Admin Panel
+- **Purpose:** Manage user accounts, monitor adoption requests, and oversee daycare and vet services.
+- **Features:**
+  - View and edit user profiles.
+  - Approve or deny adoption requests.
+  - Monitor overall system activity.
+
+### Distributor Panel
+- **Purpose:** Register pets for adoption and manage communication with adopters.
+- **Features:**
+  - Create user accounts.
+  - Register new pets for adoption.
+  - Check adoption requests.
+
+### Vet Panel
+- **Purpose:** Manage pet health records and appointment schedules.
+- **Features:**
+  - Create vet profiles.
+  - View and manage vet appointments.
+  - Manage health card details with updating medical histories, vaccination details, and notes.
+
+### Daycare Panel
+- **Purpose:** Manage daycare services and track daycare bookings.
+- **Features:**
+  - Create daycare accounts.
+  - Track shedules and bookings.
+  - Monitor pet activities while in care.
+  
 ## Installation
 1. Clone the repository:
    ```bash
@@ -48,4 +70,4 @@ For questions, please contact:
 - Implement a mobile-responsive design.
 - Add more detailed pet profiles.
 - Integrate a messaging feature for communication between users.
-=======
+
