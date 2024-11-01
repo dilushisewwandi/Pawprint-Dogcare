@@ -57,14 +57,14 @@ export const login = (req, res) => {
     });
 };
 
-//user logout
-export const logout = (req, res) => {
-    // Destroy the session
-    req.session.destroy((err) => {
-        if (err) {
-            return res.status(500).json({ error: "Failed to log out. Please try again." });
-        }
-        res.clearCookie('connect.sid'); 
-        return res.status(200).json({ message: "Logged out successfully." });
-    });
-};
+// //user logout
+// export const logout = (req, res) => {
+//     // Destroy the session
+//     req.session.destroy((err) => {
+//         if (err) {
+//             return res.status(500).json({ error: "Failed to log out. Please try again." });
+//         }
+//         res.clearCookie('connect.sid'); 
+//         return res.status(200).json({ message: "Logged out successfully." });
+//     });
+// };
