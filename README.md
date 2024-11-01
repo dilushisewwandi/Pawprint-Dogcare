@@ -31,8 +31,7 @@ Pawprint is a comprehensive web-based application designed to meet the diverse n
 ### Admin Panel
 - **Purpose:** Manage user accounts, monitor adoption requests, and oversee daycare and vet services.
 - **Features:**
-  - View and edit user profiles.
-  - Approve or deny adoption requests.
+  - Add, update, find, and delete users.
   - Monitor overall system activity.
 
 ### Distributor Panel
