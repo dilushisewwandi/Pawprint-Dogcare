@@ -37,7 +37,7 @@ export const getAllDaycare = (req, res) => {
 export const bookDaycare = (req, res) => {
     const { userID, name, phone, email, petName, petAge, petBreed, bookingDate, bookingTime, dcID } = req.body;
 
-    // Validate userID and email match in the users table
+    // Validate userID and email match in the user table
     const findUserQuery = "SELECT * FROM user WHERE userID = ? AND email = ?";
     db.query(findUserQuery, [userID, email], (userErr, userResults) => {
         if (userErr) {
@@ -46,68 +46,67 @@ export const bookDaycare = (req, res) => {
         }
 
         if (userResults.length === 0) {
-            // User not found or userID and email don't match
             return res.status(404).json({ message: 'User not found or userID and email do not match' });
         }
 
-        // Fetch disID from the distributor table based on the userID
-        const findDistributorQuery = "SELECT disID FROM distributor WHERE userID = ?";
-        db.query(findDistributorQuery, [userID], (disErr, disResults) => {
-            if (disErr) {
-                console.error('Error finding distributor:', disErr);
-                return res.status(500).json({ message: 'Error finding distributor' });
-            }
+    // Fetch disID from the distributor table based on the userID
+    const findDistributorQuery = "SELECT disID FROM distributor WHERE userID = ?";
+    db.query(findDistributorQuery, [userID], (disErr, disResults) => {
+        if (disErr) {
+            console.error('Error finding distributor:', disErr);
+            return res.status(500).json({ message: 'Error finding distributor' });
+        }
 
-            if (disResults.length === 0) {
-                return res.status(404).json({ message: 'Distributor not found' });
-            }
+        if (disResults.length === 0) {
+            return res.status(404).json({ message: 'Distributor not found' });
+        }
 
-            const disID = disResults[0].disID;
+    const disID = disResults[0].disID;
 
-            // Find the pet using the provided details
-            const findPetQuery = "SELECT petID FROM pet WHERE petName = ? AND disID = ? AND petBreed = ?";
-            db.query(findPetQuery, [petName, disID, petBreed], (findErr, findResults) => {
-                if (findErr) {
-                    console.error('Error finding pet:', findErr);
-                    return res.status(500).json({ message: 'Error finding pet' });
-                }
+    // Find the pet using the provided details
+    const findPetQuery = "SELECT petID FROM pet WHERE petName = ? AND disID = ? AND petBreed = ?";
+    db.query(findPetQuery, [petName, disID, petBreed], (findErr, findResults) => {
+        if (findErr) {
+            console.error('Error finding pet:', findErr);
+            return res.status(500).json({ message: 'Error finding pet' });
+        }
 
-                if (findResults.length === 0) {
-                    return res.status(404).json({ message: 'Pet not found' });
-                }
+        if (findResults.length === 0) {
+            return res.status(404).json({ message: 'Pet not found' });
+        }
 
-                const petID = findResults[0].petID;
+    const petID = findResults[0].petID;
 
-                // Fetch the daycare details using dcID
-                const findDaycareQuery = "SELECT * FROM daycare WHERE dcID = ?";
-                db.query(findDaycareQuery, [dcID], (err, results) => {
-                    if (err) {
-                        console.error('Database query error:', err);
-                        return res.status(500).json({ message: 'Database query failed' });
-                    }
+    // Fetch the daycare details using dcID
+    const findDaycareQuery = "SELECT * FROM daycare WHERE dcID = ?";
+    db.query(findDaycareQuery, [dcID], (err, results) => {
+        if (err) {
+            console.error('Database query error:', err);
+            return res.status(500).json({ message: 'Database query failed' });
+        }
 
-                    if (results.length === 0) {
-                        return res.status(404).json({ message: 'Daycare not found' });
-                    }
+        if (results.length === 0) {
+            return res.status(404).json({ message: 'Daycare not found' });
+        }
 
-                    const daycare = results[0];
+    const daycare = results[0];
 
-                    // Insert booking data into daycare_booking table
-                    const insertBookingQuery = `INSERT INTO daycare_booking (userID, dcID, petID, username, phone, email, bookingDate, bookingTime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
-                    db.query(insertBookingQuery, [userID, dcID, petID, name, phone, email, bookingDate, bookingTime], (insertErr) => {
-                        if (insertErr) {
-                            console.error('Error inserting booking data:', insertErr);
-                            return res.status(500).json({ message: 'Failed to insert booking data' });
-                        }
+    // Insert booking data into daycare_booking table
+    const insertBookingQuery = `INSERT INTO daycare_booking (userID, dcID, petID, username, phone, email, bookingDate, bookingTime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+    db.query(insertBookingQuery, [userID, dcID, petID, name, phone, email, bookingDate, bookingTime], (insertErr) => {
+        if (insertErr) {
+            console.error('Error inserting booking data:', insertErr);
+            return res.status(500).json({ message: 'Failed to insert booking data' });
+        }
 
-                        const updatePetQuery = "UPDATE pet SET dcID = ? WHERE petID = ?";
-                        db.query(updatePetQuery, [dcID, petID], (updateErr) => {
-                            if (updateErr) {
-                                console.error('Error updating pet table:', updateErr);
-                                return res.status(500).json({ message: 'Failed to update pet table' });
-                            }
+    const updatePetQuery = "UPDATE pet SET dcID = ? WHERE petID = ?";
+    db.query(updatePetQuery, [dcID, petID], (updateErr) => {
+        if (updateErr) {
+            console.error('Error updating pet table:', updateErr);
+            return res.status(500).json({ message: 'Failed to update pet table' });
+        }
 
-                            return res.status(200).json({ message: 'Booking successful, and pet table updated' });
+            return res.status(200).json({ message: 'Booking successful, and pet table updated' });
                         });
                     });
                 });
@@ -131,21 +130,20 @@ export const findDaycareBookingsByUserID= (req,res) => {
             return res.status(404).json({message:'Daycare not found for this user.'});
         }
 
-        const dcID = bookingResults[0].dcID;
+    const dcID = bookingResults[0].dcID;
 
-        const findBookingQuery = "SELECT * FROM daycare_booking WHERE dcID = ?";
-        db.query(findBookingQuery, [dcID], (bookingErr, bookingResults) =>{
-            if(bookingErr){
-                console.error('Error finding bookings:', bookingErr);
-                return res.status(500).json({ message: 'Database query failed when finding bookings.' });
-            }
+     const findBookingQuery = "SELECT * FROM daycare_booking WHERE dcID = ?";
+        
+     db.query(findBookingQuery, [dcID], (bookingErr, bookingResults) =>{
+        if(bookingErr){
+            console.error('Error finding bookings:', bookingErr);
+            return res.status(500).json({ message: 'Database query failed when finding bookings.' });
+        }
 
-            if (bookingResults.length === 0) {
-                return res.status(404).json({ message: 'No bookings found for this daycare.' });
-            }
-
-            // Respond with the appointments data
-            res.status(200).json(bookingResults);
+        if (bookingResults.length === 0) {
+            return res.status(404).json({ message: 'No bookings found for this daycare.' });
+        }
+        res.status(200).json(bookingResults);
         });
     });
 };
@@ -162,30 +160,25 @@ export const viewDaycareScheduleByUserID = (req, res) => {
             console.error('Error finding daycare:', daycareErr);
             return res.status(500).json({ message: 'Database query failed when finding daycare.' });
         }
-
-        // If no daycare is found for the user
         if (daycareResults.length === 0) {
             return res.status(404).json({ message: 'Daycare not found for this user.' });
         }
 
         const dcID = daycareResults[0].dcID;
 
-        // Query to find bookings for the daycare using dcID
-        const findBookingQuery = "SELECT bookingDate, bookingTime FROM daycare_booking WHERE dcID = ?";
+    // Query to find bookings for the daycare using dcID
+    const findBookingQuery = "SELECT bookingDate, bookingTime FROM daycare_booking WHERE dcID = ?";
         
-        db.query(findBookingQuery, [dcID], (bookingErr, bookingResults) => {
-            if (bookingErr) {
-                console.error('Error finding bookings:', bookingErr);
-                return res.status(500).json({ message: 'Database query failed when finding bookings.' });
-            }
+    db.query(findBookingQuery, [dcID], (bookingErr, bookingResults) => {
+        if (bookingErr) {
+            console.error('Error finding bookings:', bookingErr);
+            return res.status(500).json({ message: 'Database query failed when finding bookings.' });
+        }
 
-            // If no bookings are found for the daycare
-            if (bookingResults.length === 0) {
-                return res.status(404).json({ message: 'No bookings found for this daycare.' });
-            }
-
-            // Respond with the booking data
-            res.status(200).json(bookingResults);
+        if (bookingResults.length === 0) {
+            return res.status(404).json({ message: 'No bookings found for this daycare.' });
+        }
+        res.status(200).json(bookingResults);
         });
     });
 };
