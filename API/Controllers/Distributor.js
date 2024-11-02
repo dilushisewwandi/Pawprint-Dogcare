@@ -1,5 +1,6 @@
 import { db } from "../Connect.js";
 
+//Register distributor
 export const registerDistributor = (req, res) => {
     const { disName, disEmail, disPhone, disLocation, userID } = req.body;
 
@@ -14,7 +15,6 @@ export const registerDistributor = (req, res) => {
         }
 
         if (userResult.length === 0) {
-            // No user found with the given userID
             return res.status(400).json({ error: "This user ID is wrong, not assigned, or does not exist. Please sign up." });
         }
 
@@ -33,11 +33,11 @@ export const registerDistributor = (req, res) => {
                 return res.status(500).json({ error: "Internal Server Error", details: checkErr });
             }
 
+            // Distributor with the same userID already exists
             if (checkResult.length > 0) {
-                // Distributor with the same userID already exists
                 return res.status(200).json({
-                    message: "Distributor already registered with this User ID. Proceed to pet registration.",
-                    redirectTo: "/pet-registration" // Assuming this is the route for pet registration
+                    // message: "Distributor already registered with this User ID. ",
+                    message: "You are already registered.",
                 });
             }
 
