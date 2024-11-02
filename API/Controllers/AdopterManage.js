@@ -31,11 +31,12 @@ export const deleteAdopter = (req, res) => {
     });
 };
 
+//update adopter
 export const updateAdopter = (req, res) => {
     const { userID, adoName, adoNIC, adoAge, adoJob, adoGender, adoLocation, adoEmail, adoPhone, householdComposition, reasonForAdoption } = req.body;
     const adoID = req.params.id;
 
-    // Validate phone number and other fields
+    // Validate phone number 
     if (!adoPhone || adoPhone.trim() === '') {
         return res.status(400).json({ error: "Invalid phone number" });
     }
@@ -55,7 +56,7 @@ export const updateAdopter = (req, res) => {
 };
 
 
-// Find adopters by gender, location, reason for adoption, or find all adopters
+// Find adopters by adoID, userID, gender, location, reason for adoption, or find all adopters
 export const findAdopters = (req, res) => {
     const { searchBy, searchValue } = req.params;
     let query;
