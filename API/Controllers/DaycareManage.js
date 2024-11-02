@@ -44,8 +44,10 @@ export const deleteDaycare = (req, res) => {
     const dcID = req.params.id;
 
     const q = "DELETE FROM daycare WHERE dcID = ?";
+
     db.query(q, [dcID], (err, data) => {
         if (err) return res.status(500).json({ success: false, message: "Error deleting daycare", error: err });
+
         if (data.affectedRows === 0) {
             return res.status(404).json({ success: false, message: "No daycare found with the specified ID." });
         }
@@ -107,6 +109,7 @@ export const findDaycareByLocation = (req, res) => {
     });
 };
 
+/*
 // Find daycare by Amenities Offered
 export const findDaycareByAmenities = (req, res) => {
     const amenities = req.params.amenities;
@@ -142,6 +145,7 @@ export const findDaycareBySafety = (req, res) => {
         return res.status(200).json(data);
     });
 };
+*/
 
 // Find all daycares
 export const findAllDaycares = (req, res) => {
