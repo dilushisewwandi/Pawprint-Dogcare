@@ -6,6 +6,6 @@ const router = express.Router();
 router.post('/add', addHealthCard);
 router.get('/getHealthProfile/:petID', getHealthProfile);
 router.delete('/delete/:id', deleteHealthCard);
-router.get('/find', getAllHealthCard);
+router.get('/findAll', getAllHealthCard);
 router.put('/update/:cardID',updateHealthCard);
 export default router;
