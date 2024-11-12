@@ -1,90 +1,18 @@
 import { db } from "../Connect.js";
 
-// // Register adopter and adopt a pet
-// export const registerAdopterAndAdoptPet = (req, res) => {
-//     const { adoName, adoNIC, adoAge, adoJob, adoGender, adoLocation, adoEmail, adoPhone, houseHoldComposition, reasonForAdoption, userID, petID } = req.body;
-
-//     console.log("Received data:", req.body);
-
-//     // Basic validation: check if required fields are not null or undefined
-//     if (!adoName || !adoNIC || !adoAge || !adoJob || !adoGender || !adoLocation || !adoEmail || !adoPhone || !houseHoldComposition || !reasonForAdoption || !userID || !petID) {
-//         return res.status(400).json({ error: "All fields are required and must not be null." });
-//     }
-
-//     // Fetch user details from the user table using the provided userID
-//     const getUserQuery = "SELECT username, email FROM user WHERE userID = ?";
-//     db.query(getUserQuery, [userID], (userErr, userResult) => {
-//         if (userErr) {
-//             console.error("Database query failed:", userErr);
-//             return res.status(500).json({ error: "Internal Server Error", details: userErr });
-//         }
-
-//         if (userResult.length === 0) {
-//             return res.status(400).json({ error: "This user ID is wrong, not assigned, or does not exist. Please sign up." });
-//         }
-
-//         const { username, email } = userResult[0];
-
-//         // Check if the provided name and email match the ones from the user table
-//         if (adoName !== username || adoEmail !== email) {
-//             return res.status(400).json({ error: "Name or email does not match the user information" });
-//         }
-
-//         // Insert the adopter into the adopter table
-//         const insertAdopterQuery = `
-//             INSERT INTO adopter(userID, adoName, adoNIC, adoAge, adoJob, adoGender, adoLocation, adoEmail, adoPhone, houseHoldComposition, reasonForAdoption)
-//             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-//         `;
-//         const adopterValues = [userID, adoName, adoNIC, adoAge, adoJob, adoGender, adoLocation, adoEmail, adoPhone, houseHoldComposition, reasonForAdoption];
-
-//         db.query(insertAdopterQuery, adopterValues, (insertErr, insertResult) => {
-//             if (insertErr) {
-//                 console.error('Error inserting adopter data:', insertErr);
-//                 return res.status(500).json({ message: 'Failed to insert adopter data' });
-//             }
-
-//             const adopterID = insertResult.insertId;
-
-//             // Update the pet's status and assign the adopter's ID
-//             const updatePetQuery = `
-//                 UPDATE pet
-//                 SET adoID = ?, status = 'Requested'
-//                 WHERE petID = ?
-//             `;
-//             const petValues = [adopterID, petID];
-
-//             db.query(updatePetQuery, petValues, (updateErr, updateResult) => {
-//                 if (updateErr) {
-//                     console.error('Error updating pet table:', updateErr);
-//                     return res.status(500).json({ message: 'Failed to update pet table' });
-//                 }
-
-//                 if (updateResult.affectedRows === 0) {
-//                     return res.status(404).json({ error: "Pet not found or already adopted." });
-//                 }
-
-//                 // Replace the email functionality with a success message
-//                 return res.status(201).json({ message: "Adoption request sent to the distributor successfully." });
-//             });
-//         });
-//     });
-// };
-
 export const registerAdopterAndAdoptPet = (req, res) => {
-    const {
-        adoName, adoNIC, adoAge, adoJob, adoGender, adoLocation, adoEmail, adoPhone,
-        houseHoldComposition, reasonForAdoption, userID, petID
-    } = req.body;
+    const {adoName, adoNIC, adoAge, adoJob, adoGender, adoLocation, adoEmail, adoPhone, houseHoldComposition, reasonForAdoption, userID, petID} = req.body;
 
     console.log("Received data:", req.body);
 
-    // Basic validation: check if required fields are not null or undefined
+    //check if required fields are not null or undefined
     if (!adoName || !adoNIC || !adoAge || !adoJob || !adoGender || !adoLocation || !adoEmail || !adoPhone || !houseHoldComposition || !reasonForAdoption || !userID || !petID) {
         return res.status(400).json({ error: "All fields are required and must not be null." });
     }
 
     // Fetch user details from the user table using the provided userID
     const getUserQuery = "SELECT username, email FROM user WHERE userID = ?";
+
     db.query(getUserQuery, [userID], (userErr, userResult) => {
         if (userErr) {
             console.error("Database query failed:", userErr);
@@ -104,6 +32,7 @@ export const registerAdopterAndAdoptPet = (req, res) => {
 
         // Check if the adopter already exists in the adopter table
         const checkAdopterQuery = "SELECT adoID FROM adopter WHERE userID = ?";
+
         db.query(checkAdopterQuery, [userID], (checkErr, checkResult) => {
             if (checkErr) {
                 console.error("Error checking adopter:", checkErr);
@@ -113,14 +42,12 @@ export const registerAdopterAndAdoptPet = (req, res) => {
             let adopterID;
 
             if (checkResult.length > 0) {
-                // Adopter exists, get the existing adoID
                 adopterID = checkResult[0].adoID;
             } else {
-                // Adopter does not exist, so insert a new record
                 const insertAdopterQuery = `
                     INSERT INTO adopter(userID, adoName, adoNIC, adoAge, adoJob, adoGender, adoLocation, adoEmail, adoPhone, houseHoldComposition, reasonForAdoption)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                `;
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
                 const adopterValues = [userID, adoName, adoNIC, adoAge, adoJob, adoGender, adoLocation, adoEmail, adoPhone, houseHoldComposition, reasonForAdoption];
 
                 db.query(insertAdopterQuery, adopterValues, (insertErr, insertResult) => {
@@ -128,22 +55,17 @@ export const registerAdopterAndAdoptPet = (req, res) => {
                         console.error('Error inserting adopter data:', insertErr);
                         return res.status(500).json({ message: 'Failed to insert adopter data' });
                     }
-                    adopterID = insertResult.insertId; // New adoID
+                    adopterID = insertResult.insertId;
                     proceedWithPetAdoption(adopterID);
                 });
             }
-
             // If the adopter already exists, proceed with pet adoption using existing adoID
             if (adopterID) proceedWithPetAdoption(adopterID);
         });
 
-        // Function to update pet table with adopter details
+        //Update pet table with adopter details
         const proceedWithPetAdoption = (adopterID) => {
-            const updatePetQuery = `
-                UPDATE pet
-                SET adoID = ?, status = 'Requested'
-                WHERE petID = ?
-            `;
+            const updatePetQuery = `UPDATE pet SET adoID = ?, status = 'Requested' WHERE petID = ?`;
             const petValues = [adopterID, petID];
 
             db.query(updatePetQuery, petValues, (updateErr, updateResult) => {
@@ -156,24 +78,22 @@ export const registerAdopterAndAdoptPet = (req, res) => {
                     return res.status(404).json({ error: "Pet not found or already adopted." });
                 }
 
-                // Successfully sent the adoption request
                 return res.status(201).json({ message: "Adoption request sent to the distributor successfully." });
             });
         };
     });
 };
 
-
 // Get adoption requests for a distributor based on their userID
 export const getAdoptionRequestsByDistributor = (req, res) => {
     const { userID } = req.params;
 
-    // Basic validation: check if userID is provided
+    //check if userID is provided
     if (!userID) {
         return res.status(400).json({ error: "Distributor userID is required." });
     }
 
-    // Query to get adoption requests where the distributor's pets have been requested
+    //get adoption requests where the distributor's pets have been requested
     const adoptionRequestsQuery = `
         SELECT 
             p.petID, p.petName, p.petBreed,
@@ -198,12 +118,9 @@ export const getAdoptionRequestsByDistributor = (req, res) => {
             return res.status(404).json({ message: "No adoption requests found for this distributor." });
         }
 
-        // Return the fetched adoption requests
         return res.status(200).json({ adoptionRequests: results });
     });
 };
-
-
 
 // Register a pet
 export const registerPet = (req, res) => {
@@ -212,23 +129,21 @@ export const registerPet = (req, res) => {
 
     // Check if userID exists in the distributor table and fetch disID
     const checkDistributorQuery = "SELECT disID FROM distributor WHERE userID = ?";
+
     db.query(checkDistributorQuery, [userID], (checkErr, checkResult) => {
         if (checkErr) {
             console.error("Error checking distributor by userID:", checkErr);
             return res.status(500).json({ error: "Internal Server Error", details: checkErr });
         }
 
-        //if no distributor found with this userID, return an error
         if (checkResult.length === 0) {
             return res.status(400).json({ error: "Distributor not found for the given userID." });
         }
 
-        // Proceed to register the pet
         const disID = checkResult[0].disID;
-        const insertPetQuery = `
-            INSERT INTO pet(disID, petName, petAge, petHeight, petWeight, petGender, petSkinColor, petBreed, petImage) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-        `;
+        const insertPetQuery = `INSERT INTO pet(disID, petName, petAge, petHeight, petWeight, petGender, petSkinColor, petBreed, petImage) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
         const values = [disID, petName, petAge, petHeight, petWeight, petGender, petSkinColor, petBreed, petImage];
 
         db.query(insertPetQuery, values, (err, data) => {
@@ -241,7 +156,7 @@ export const registerPet = (req, res) => {
     });
 };
 
-//get pets bu distributor id
+//get pets by distributor id
 export const getPetsByDistributor = (req, res) => {
     const disID = req.params.id;
 
@@ -290,8 +205,6 @@ export const getPetProfile = (req, res) => {
         return res.status(200).json(data[0]);
     });
 };
-
-
 
 // Get all Pet Profiles
 export const getAllPetProfiles = (req, res) => {

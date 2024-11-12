@@ -2,9 +2,8 @@ import {db} from "../Connect.js";
 
 //add distributors
 export const addDistributor = (req,res) => {
-    const {disName,disEmail,disPhone,disLocation,userID} = req.body;
+    const {disName, disEmail, disPhone, disLocation, userID} = req.body;
 
-    //Log the received data
     console.log("Received data:", req.body);
 
     //validate input
@@ -12,18 +11,17 @@ export const addDistributor = (req,res) => {
         return res.status(400).json({error: "Invalid phone number"});
     }
 
+    const q = "INSERT INTO distributor(`disName`,`disEmail`,`disPhone`,`disLocation`,`userID`) VALUES (?)";
+    const values = [disName, disEmail, disPhone, disLocation, userID];
 
-const q = "INSERT INTO distributor(`disName`,`disEmail`,`disPhone`,`disLocation`,`userID`) VALUES (?)";
-const values = [disName,disEmail,disPhone,disLocation,userID];
-
-db.query(q,[values],(err,data)=>{
-    if(err){
-        //log the error for debugging
-        console.error("Database query failed:", err);
-        return res.status(500).json({error:"Internal Server Error", details: err});
-    }
-    return res.status(201).json("Distributor has been added successfully.");
-});
+    db.query(q,[values],(err,data)=>{
+        if(err){
+            //log the error for debugging
+            console.error("Database query failed:", err);
+            return res.status(500).json({error:"Internal Server Error", details: err});
+        }
+        return res.status(201).json("Distributor has been added successfully.");
+    });
 };
 
 //delete distributor
@@ -50,7 +48,7 @@ export const updateDistributor = (req, res) => {
     
     const q = "UPDATE distributor SET disName = ?, disEmail = ?, disPhone = ?, disLocation = ?, userID = ? WHERE disID = ?";
 
-    db.query(q, [disName,disEmail,disPhone,disLocation,userID,disID], (err, data) => {
+    db.query(q, [disName, disEmail, disPhone, disLocation, userID, disID], (err, data) => {
         if (err) {
             console.error("Database query failed:", err);
             return res.status(500).json({ error: "Internal Server Error", details: err });

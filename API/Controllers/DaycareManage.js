@@ -86,7 +86,7 @@ export const findDaycareByUserId = (req, res) => {
         if (data.length === 0) {
             return res.status(404).json({ success: false, message: 'No daycare found with the specified User ID' });
         }
-        res.status(200).json(data); // Send the fetched data as a JSON response
+        res.status(200).json(data); 
     });
 };
 
@@ -108,44 +108,6 @@ export const findDaycareByLocation = (req, res) => {
         return res.status(200).json(data);
     });
 };
-
-/*
-// Find daycare by Amenities Offered
-export const findDaycareByAmenities = (req, res) => {
-    const amenities = req.params.amenities;
-
-    const q = "SELECT * FROM daycare WHERE amenitiesOffered LIKE ?";
-
-    db.query(q, [`%${amenities}%`], (err, data) => {
-        if (err) {
-            console.error('Error finding daycare by amenities:', err);
-            return res.status(500).json({ message: 'Error finding daycare by amenities', error: err });
-        }
-        if (data.length === 0) {
-            return res.status(404).json({ message: 'No daycare found with the specified amenities' });
-        }
-        return res.status(200).json(data);
-    });
-};
-
-// Find daycare by Safety Features
-export const findDaycareBySafety = (req, res) => {
-    const safetyFeatures = req.params.safety;
-
-    const q = "SELECT * FROM daycare WHERE safetyFeatures LIKE ?";
-
-    db.query(q, [`%${safetyFeatures}%`], (err, data) => {
-        if (err) {
-            console.error('Error finding daycare by safety features:', err);
-            return res.status(500).json({ message: 'Error finding daycare by safety features', error: err });
-        }
-        if (data.length === 0) {
-            return res.status(404).json({ message: 'No daycare found with the specified safety features' });
-        }
-        return res.status(200).json(data);
-    });
-};
-*/
 
 // Find all daycares
 export const findAllDaycares = (req, res) => {

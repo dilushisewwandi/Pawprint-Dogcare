@@ -14,7 +14,7 @@ export const addPet = (req, res) => {
 
     console.log("Received data:", req.body, "Received file:", req.file);
 
-    // First, query to get the disID based on userID
+    // Query to get the disID based on userID
     const fetchDisIDQuery = "SELECT disID FROM distributor WHERE userID = ?";
     
     db.query(fetchDisIDQuery, [userID], (err, distributorData) => {
@@ -85,7 +85,7 @@ export const updatePet = (req, res) => {
     const petID = req.params.id;
     const petImage = req.file ? req.file.filename : '';
 
-    // First, fetch the old image to delete it if a new one is uploaded
+    // Fetch the old image to delete it if a new one is uploaded
     const getOldImageQuery = 'SELECT petImage FROM pet WHERE petID = ?';
     db.query(getOldImageQuery, [petID], (err, data) => {
         if (err) {

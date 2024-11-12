@@ -8,6 +8,7 @@ export const registerDistributor = (req, res) => {
 
     // Fetch user details from the user table using the provided userID
     const getUserQuery = "SELECT username, email FROM user WHERE userID = ?";
+    
     db.query(getUserQuery, [userID], (userErr, userResult) => {
         if (userErr) {
             console.error("Database query failed:", userErr);
@@ -36,7 +37,6 @@ export const registerDistributor = (req, res) => {
             // Distributor with the same userID already exists
             if (checkResult.length > 0) {
                 return res.status(200).json({
-                    // message: "Distributor already registered with this User ID. ",
                     message: "You are already registered.",
                 });
             }

@@ -4,10 +4,8 @@ import { db } from "../Connect.js";
 export const addVet = (req, res) => {
     const {vetName, vetEmail, vetSpecialization,vetPhone,clinic,userID } = req.body;
 
-    // Log the received data
     console.log("Received data:", req.body);
 
-    // Validate input
     if (isNaN(vetPhone) || vetPhone.trim() === '') {
         return res.status(400).json({ error: "Invalid phone number" });
     }
@@ -60,6 +58,7 @@ export const findVetByID = (req, res) => {
     const vetID = req.params.id;
     console.log(`Received request to find vet by ID: ${vetID}`);
     const q = "SELECT * FROM veterinarian WHERE vetID = ?";
+    
     db.query(q, [vetID], (err, data) => {
         if (err) {
             console.error("Database query failed:", err);
