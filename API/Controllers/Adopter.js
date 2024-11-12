@@ -2,51 +2,13 @@ import { db } from "../Connect.js";
 
 // Register adopter
 export const registerAdopter = (req, res) => {
-    const { 
-        //adoID, 
-        userID, 
-        adoName, 
-        adoNIC, 
-        adoAge, 
-        adoJob, 
-        adoGender, 
-        adoLocation, 
-        adoEmail, 
-        adoPhone, 
-        houseHoldComposition, 
-        reasonForAdoption 
-    } = req.body;
+    const { userID, adoName, adoNIC, adoAge, adoJob, adoGender, adoLocation, adoEmail, adoPhone, houseHoldComposition,  reasonForAdoption } = req.body;
 
     console.log("Received data:", req.body);
 
     const q = `
-        INSERT INTO adopter(
-            userID, 
-            adoName, 
-            adoNIC, 
-            adoAge, 
-            adoJob, 
-            adoGender, 
-            adoLocation, 
-            adoEmail, 
-            adoPhone, 
-            houseHoldComposition, 
-            reasonForAdoption
-        ) VALUES (?)`;
-    const values = [
-        // adoID, 
-        userID, 
-        adoName, 
-        adoNIC, 
-        adoAge, 
-        adoJob, 
-        adoGender, 
-        adoLocation, 
-        adoEmail, 
-        adoPhone, 
-        houseHoldComposition, 
-        reasonForAdoption
-    ];
+        INSERT INTO adopter(userID, adoName, adoNIC, adoAge, adoJob, adoGender, adoLocation, adoEmail, adoPhone, houseHoldComposition, reasonForAdoption) VALUES (?)`;
+    const values = [userID, adoName, adoNIC, adoAge, adoJob, adoGender, adoLocation, adoEmail, adoPhone, houseHoldComposition, reasonForAdoption];
 
     db.query(q, [values], (err, data) => {
         if (err) {
