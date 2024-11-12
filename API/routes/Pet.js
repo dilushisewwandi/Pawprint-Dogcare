@@ -21,7 +21,6 @@ const upload = multer({ storage: storage });
 
 const router = express.Router();
 
-// Pet Routes
 router.post('/register', upload.single('petImage'), registerPet);
 router.get('/distributor/:disID', getPetsByDistributor);
 router.get('/allpets', getAllPets);

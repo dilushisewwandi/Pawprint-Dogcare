@@ -22,7 +22,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// Define routes
 router.post('/add', upload.single('petImage'), addPet);
 router.delete('/delete/:id', deletePet);
 router.put('/update/:id', upload.single('petImage'), updatePet);

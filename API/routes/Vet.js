@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post('/register',registerVet);
 router.get('/vetProfiles', getAllVetProfiles);
-router.post('/bookAppointment', bookVetAppointment);
+router.post('/vetAppointment', bookVetAppointment);
 router.get('/findVetAppointments/:userID',findVetAppointmentsByUserID)
 
 export default router;
