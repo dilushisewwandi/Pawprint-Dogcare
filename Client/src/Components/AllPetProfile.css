@@ -42,7 +42,6 @@ color: white;
 }
 
 .pet-profile-card {
-    /* width: calc(20% - 20px); */
     width:1300px;
     background-color:#fff;
     padding: 50px;
@@ -70,9 +69,6 @@ color: white;
     background-color: white;
 }
 
-/* h2, h3 {
-    margin-top: 0;
-} */
 .pet-details h2{
   font-size: 40px;
  }

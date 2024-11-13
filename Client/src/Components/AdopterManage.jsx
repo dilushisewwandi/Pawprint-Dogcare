@@ -35,16 +35,32 @@ const AdopterManagement = ({ formType }) => {
         setSearchCriteria({ ...searchCriteria, [name]: value });
     };
 
+    // const handleSubmit = async (e, url, method) => {
+    //     e.preventDefault();
+    //     try {
+    //         const response = await axios({ method, url, data: formData });
+    //         alert(response.data);
+    //     } catch (err) {
+    //         // console.error(err);
+    //         // alert(`Error ${formType} adopter: ${err.response?.data?.error || err.message}`);
+    //         console.error(err);
+    //         const errorMessage = err.response?.data?.error || err.message; 
+    //         alert(`Error deleting adopter: ${errorMessage}`); 
+    //     }
+    // };
     const handleSubmit = async (e, url, method) => {
         e.preventDefault();
         try {
             const response = await axios({ method, url, data: formData });
-            alert(response.data);
+            alert(response.data);  
         } catch (err) {
             console.error(err);
-            alert(`Error ${formType} adopter: ${err.response?.data?.error || err.message}`);
+            const errorMessage = err.response?.data?.error || err.message; 
+            // alert(`Error adding adopter: ${errorMessage}`); 
+            alert(`Error: ${errorMessage}`); 
         }
     };
+    
 
     const handleAdopterSearch = async (e) => {
         e.preventDefault();

@@ -7,7 +7,7 @@ import './Daycare.css';
 const Daycare = () => {
   const { dcID } = useParams();
   const [daycare, setDaycare] = useState([]);
-  const [activeBookingForm, setActiveBookingForm] = useState(null); // To track the active booking form
+  const [activeBookingForm, setActiveBookingForm] = useState(null); 
 
   useEffect(() => {
     fetchDaycareDetails();
@@ -24,9 +24,9 @@ const Daycare = () => {
 
   const handleBookingButtonClick = (dcID) => {
     if (activeBookingForm === dcID) {
-      setActiveBookingForm(null); // Close the form if clicked again
+      setActiveBookingForm(null); 
     } else {
-      setActiveBookingForm(dcID); // Open the clicked form
+      setActiveBookingForm(dcID); 
     }
   };
 
@@ -36,7 +36,6 @@ const Daycare = () => {
 
   return (
     <div className="daycare-profile-container">
-      {/* Hero section for the image and welcome message */}
       <div className="dc-hero-section">
         <div className="dc-welcome-message">
           <h1>Welcome to Our Daycares!</h1>
@@ -47,7 +46,6 @@ const Daycare = () => {
         </div>
       </div>
 
-      {/* Daycare cards */}
       <div className="daycare-card-container">
         {daycare.map((dc) => (
           <div key={dc.dcID} className="daycare-card">
@@ -63,7 +61,6 @@ const Daycare = () => {
               <p><strong>Amenities Offered:</strong> {dc.amenitiesOffered}</p>
               <p><strong>Safety Features:</strong> {dc.safetyFeatures}</p>
               
-              {/* Button to toggle the booking form */}
               <button 
                 className="btn btn-primary"
                 onClick={() => handleBookingButtonClick(dc.dcID)}
@@ -71,7 +68,6 @@ const Daycare = () => {
                 {activeBookingForm === dc.dcID ? 'Cancel Booking' : 'Add Booking'}
               </button>
               
-              {/* Show the booking form only if this card's dcID matches the active one */}
               {activeBookingForm === dc.dcID && <DaycareBooking daycareId={dc.dcID} />}
             </div>
           </div>

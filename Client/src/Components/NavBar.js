@@ -13,7 +13,6 @@ const NavigationBar = () => {
         <li><HashLink to="/#service">Services</HashLink></li>
         <li><HashLink to="/#contact">Contact</HashLink></li>
         <li><Link to="/signup">Login</Link></li>
-        {/* <li><Link to="/admin">Admin</Link></li> */}
       </ul>
     </nav>
   );

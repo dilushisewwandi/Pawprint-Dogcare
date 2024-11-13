@@ -51,7 +51,7 @@
 .h-card-form-row input,
 .h-card-form-row select,
 .h-card-form-row textarea {
-    width: 100%; /* Ensures all input fields are the same width */
+    width: 100%; 
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -63,8 +63,8 @@
 
 /* Specific height for textarea */
 .h-card-form-row textarea {
-    height: 100px; /* Adjust the height as needed */
-    resize: vertical; /* Allows vertical resizing */
+    height: 100px;
+    resize: vertical;
 }
 
 /* Focus state for inputs */
@@ -104,6 +104,7 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     font-family: 'Arial', sans-serif;
+    position: relative;
 }
 
 /* Health card header */

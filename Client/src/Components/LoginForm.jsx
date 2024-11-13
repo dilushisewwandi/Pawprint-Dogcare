@@ -21,7 +21,7 @@ const LoginForm = () => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:8800/api/auth/login', formData);
-            alert(response.data.message); // Assuming your response contains a 'message' field
+            alert(response.data.message); 
             const { role, userId} = response.data;
 
             // Navigate based on the user's role
@@ -29,16 +29,13 @@ const LoginForm = () => {
                 navigate(`/admin/${userId}`);
             } else if (role === 'distributor') {
                 navigate(`/distributorPanel`);
-                // navigate(`/distributorPanel/${userId}`);
             } else if (role === 'adopter') {
                 navigate(`/adopt`);
             } else if (role === 'vet') {
                 navigate(`/vetPanel`);
-                // navigate(`/vetPanel/${userId}`);
             }
             else if (role === 'daycare') {
                 navigate(`/daycarePanel`);
-                // navigate(`/daycare/${userId}`);
             }
 
 
@@ -59,7 +56,6 @@ const LoginForm = () => {
 
     return (
         <div className="login-page-container">
-            {/* Hero Section on the Left */}
             <div className="login-hero-section">
                 <div className="login-hero-content">
                     <h1>Welcome Back to Pawprint</h1>
@@ -67,7 +63,6 @@ const LoginForm = () => {
                 </div>
             </div>
 
-            {/* Login form on the Right */}
             <div className="login-form-section">
                 <div className="login-card">
                     <div className="login-card-body">

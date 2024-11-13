@@ -36,19 +36,64 @@ const HealthCardManagement = ({ formType }) => {
         setHealthCardSearchCriteria({ ...healthCardSearchCriteria, [name]: value });
     };
 
+    // const handleHealthCardSubmit = async (e) => {
+    //     e.preventDefault();
+
+    //     try {
+    //         let response;
+    //         if (formType === 'add') {
+    //             response = await axios.post('http://localhost:8800/api/healthcard/add', healthCardFormData);
+    //             // alert(response.data);
+    //             alert(response.data.message);
+    //         } else if (formType === 'update') {
+    //             response = await axios.put(`http://localhost:8800/api/healthcard/update/${healthCardFormData.cardID}`, healthCardFormData);
+    //             // alert(response.data);
+    //             alert(response.data.message);
+    //         }
+
+    //         setHealthCardFormData({
+    //             cardID: '',
+    //             vetUserID: '',
+    //             petID: '',
+    //             healthIssues: '',
+    //             lastCheckupDate: '',
+    //             vName: '',
+    //             vDate: '',
+    //             vDose: '',
+    //             vStatus: '',
+    //             dueDateForNext: ''
+    //         });
+    //     } catch (error) {
+    //         console.error("Error:", error);
+    //         // alert(`An error occurred: ${error.message}`);
+    //         alert(`An error occurred: ${error.response?.data?.message || error.message}`);
+    //     }
+    // };
     const handleHealthCardSubmit = async (e) => {
         e.preventDefault();
-
+    
         try {
+            // Ensure necessary fields are filled
+            if (!healthCardFormData.vetUserID || !healthCardFormData.petID) {
+                alert("Please fill in the vet and pet IDs.");
+                return;
+            }
+    
             let response;
             if (formType === 'add') {
                 response = await axios.post('http://localhost:8800/api/healthcard/add', healthCardFormData);
-                alert(response.data);
+                alert(response.data.message);
             } else if (formType === 'update') {
+                if (!healthCardFormData.cardID) {
+                    alert("Please provide a valid card ID for updating.");
+                    return;
+                }
+    
                 response = await axios.put(`http://localhost:8800/api/healthcard/update/${healthCardFormData.cardID}`, healthCardFormData);
-                alert(response.data);
+                alert(response.data.message);
             }
-
+    
+            // Reset form only after a successful request
             setHealthCardFormData({
                 cardID: '',
                 vetUserID: '',
@@ -61,11 +106,15 @@ const HealthCardManagement = ({ formType }) => {
                 vStatus: '',
                 dueDateForNext: ''
             });
+    
         } catch (error) {
             console.error("Error:", error);
-            alert(`An error occurred: ${error.message}`);
+    
+            // Display specific error message if available
+            alert(`An error occurred: ${error.response?.data?.error || error.message}`);
         }
     };
+    
 
     const handleHealthCardDelete = async (e) => {
         e.preventDefault();
@@ -87,9 +136,10 @@ const HealthCardManagement = ({ formType }) => {
             let response;
             if (searchBy === 'all') {
                 response = await axios.get('http://localhost:8800/api/healthcard/findAll');
-            } else {
-                response = await axios.get(`http://localhost:8800/api/healthcard/findBy${searchBy.charAt(0).toUpperCase() + searchBy.slice(1)}/${searchValue}`);
             }
+            // } else {
+            //     response = await axios.get(`http://localhost:8800/api/healthcard/findBy${searchBy.charAt(0).toUpperCase() + searchBy.slice(1)}/${searchValue}`);
+            // }
             setFoundHealthCards(response.data);
         } catch (error) {
             console.error("Error:", error);
@@ -173,7 +223,7 @@ const HealthCardManagement = ({ formType }) => {
                                 value={healthCardFormData.vName}
                                 onChange={handleHealthCardChange}
                                 placeholder="Enter Vaccine Name"
-                                required
+                              
                             />
                         </div>
 
@@ -184,7 +234,7 @@ const HealthCardManagement = ({ formType }) => {
                                 name="vDate"
                                 value={healthCardFormData.vDate}
                                 onChange={handleHealthCardChange}
-                                required
+                                
                             />
                         </div>
 
@@ -196,7 +246,7 @@ const HealthCardManagement = ({ formType }) => {
                                 value={healthCardFormData.vDose}
                                 onChange={handleHealthCardChange}
                                 placeholder="Enter Dose"
-                                required
+                                
                             />
                         </div>
 
@@ -208,7 +258,7 @@ const HealthCardManagement = ({ formType }) => {
                                 value={healthCardFormData.vStatus}
                                 onChange={handleHealthCardChange}
                                 placeholder="Enter Status"
-                                required
+                               
                             />
                         </div>
 
@@ -219,7 +269,7 @@ const HealthCardManagement = ({ formType }) => {
                                 name="dueDateForNext"
                                 value={healthCardFormData.dueDateForNext}
                                 onChange={handleHealthCardChange}
-                                required
+                            
                             />
                         </div>
                     </>
@@ -259,9 +309,6 @@ const HealthCardManagement = ({ formType }) => {
                             <select name="searchBy" onChange={handleSearchChange} required>
                                 <option value="">Select Search Criteria</option>
                                 <option value="all">Find All Health Cards</option>
-                                <option value="id">Find by ID</option>
-                                <option value="petID">Find by Pet ID</option>
-                                <option value="vetUserID">Find by Vet User ID</option>
                             </select>
                         </div>
 
@@ -295,9 +342,9 @@ const HealthCardManagement = ({ formType }) => {
                 <div className="h-card-found-cards">
                     <h3>Found Health Cards:</h3>
                     {foundHealthCards.map((healthCard) => (
-                        <div key={healthCard.cardID} className="h-card-card">
+                        <div key={healthCard.cardID} className="h-card">
                             <h4>Health Card ID: {healthCard.cardID}</h4>
-                            <p>Vet User ID: {healthCard.vetUserID}</p>
+                            {/* <p>Vet User ID: {healthCard.userID}</p> */}
                             <p>Pet ID: {healthCard.petID}</p>
                             <p>Health Issues: {healthCard.healthIssues}</p>
                             <p>Last Checkup Date: {healthCard.lastCheckupDate}</p>

@@ -5,7 +5,6 @@ import "./DistributorPanel.css";
 const DistributorPanel = () => {
   const navigate = useNavigate();
 
-  // Handle button clicks to navigate to the appropriate pages
   const handleCreateAccountClick = () => {
     navigate("/distributor/:userId");
   };
@@ -27,27 +26,21 @@ const DistributorPanel = () => {
           <div className="distributorPanel-card">
             <img src="./Assets/find.jpg" className="distributorPanel-card-img" />
           </div>
-          <button onClick={handleCreateAccountClick} className="distributorPanel-btn">
-            Create Account
-          </button>
+          <button onClick={handleCreateAccountClick} className="distributorPanel-btn">Create Account</button>
         </div>
 
         <div className="distributorPanel-card-group">
           <div className="distributorPanel-card">
             <img src="./Assets/signup4.jpg" className="distributorPanel-card-img" />
           </div>
-          <button onClick={handleRegisterPetClick} className="distributorPanel-btn">
-            Register a Pet
-          </button>
+          <button onClick={handleRegisterPetClick} className="distributorPanel-btn">Register a Pet</button>
         </div>
 
         <div className="distributorPanel-card-group">
           <div className="distributorPanel-card">
             <img src="./Assets/signup back2.jpg" className="distributorPanel-card-img" />
           </div>
-          <button onClick={handleCheckRequestsClick} className="distributorPanel-btn">
-            Check Adoption Requests
-          </button>
+          <button onClick={handleCheckRequestsClick} className="distributorPanel-btn">Check Adoption Requests</button>
         </div>
       </div>
     </div>

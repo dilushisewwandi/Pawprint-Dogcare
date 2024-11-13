@@ -37,7 +37,6 @@ function PetRegistrationForm() {
 
         if (response.ok) {
           alert('Your pet registered successfully');
-          // window.location.href = '/services';
         } else {
           setServerError(result.error || 'Error registering pet.');
         }
@@ -155,8 +154,9 @@ function PetRegistrationForm() {
                 value={values.petWeight}
                 onChange={handleInput}
                 required
-                placeholder="Enter Pet Weight"
+                placeholder="Enter Pet Weight (e.g., 5.5)"
                 className="form-control rounded"
+                 step="0.1"
               />
               {errors.petWeight && <span className="text-danger">{errors.petWeight}</span>}
             </div>
@@ -169,8 +169,9 @@ function PetRegistrationForm() {
                 value={values.petHeight}
                 onChange={handleInput}
                 required
-                placeholder="Enter Pet Height"
+                placeholder="Enter Pet Height (e.g., 4.5)"
                 className="form-control rounded"
+                step="0.1"
               />
               {errors.petHeight && <span className="text-danger">{errors.petHeight}</span>}
             </div>

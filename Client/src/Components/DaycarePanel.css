@@ -43,23 +43,23 @@
 /* Circular Card Styles */
 .daycarePanel-card {
     background-color: white;
-    border-radius: 50%; /* Make the card circular */
-    width: 300px;       /* Ensure same size as image */
-    height: 300px;      /* Ensure same size as image */
+    border-radius: 50%; 
+    width: 300px;       
+    height: 300px;     
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin-bottom: 30px; /* Space between card and button */
+    margin-bottom: 30px; 
 }
 
 /* Circular Image inside the card */
 .daycarePanel-card-img {
-    width: 100%;          /* Match the card width */
-    height: 100%;         /* Match the card height */
-    object-fit: cover;     /* Ensure the image fits perfectly */
-    border-radius: 50%;    /* Ensure the image is circular */
+    width: 100%;    
+    height: 100%;  
+    object-fit: cover;    
+    border-radius: 50%;  
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }

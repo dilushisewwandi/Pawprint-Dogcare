@@ -1,23 +1,22 @@
 
 .pet-profile-container {
   display: flex;
-  flex-direction: row; /* Align image and details side by side */
+  flex-direction: row; 
   justify-content: space-between;
-  align-items: flex-start; /* Align items at the top */
+  align-items: flex-start; 
   padding: 30px;
-  width: 100%; /* Take full width */
-  max-width: 1300px; /* Optional: set max width */
-  margin: 0 auto; /* Center the content on the page */
- 
+  width: 100%; 
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 /* Left side: Pet image styling */
 .adopt-pet-image {
   width: 100%;
-  max-width: 300px; /* Decrease the max width */
-  height: auto; /* Keep the aspect ratio */
+  max-width: 300px; 
+  height: auto; 
   border-radius: 20px;
-  margin-right: 40px; /* Space between image and details */
+  margin-right: 40px; 
 }
 
 /* Right side: Pet details styling */
@@ -27,27 +26,27 @@
   background-color: #f0f0f0;
   padding: 15px;
   border-radius: 8px;
-  margin: 10px; /* Consistent margins on all sides */
+  margin: 10px; 
   width: 100%;
-  max-width: 700px; /* Control the width of the details section */
+  max-width: 700px; 
 }
 
 /* Responsive design for small screens */
 @media (max-width: 768px) {
   .pet-profile-container {
-    flex-direction: column; /* Stack image and details vertically */
-    align-items: center; /* Center items in the column layout */
+    flex-direction: column; 
+    align-items: center;
   }
 
   .adopt-pet-image {
-    margin-right: 0; /* Remove the margin on small screens */
-    margin-bottom: 20px; /* Add space between the image and details */
-    max-width: 100%; /* Allow image to take full width */
+    margin-right: 0;
+    margin-bottom: 20px;
+    max-width: 100%; 
   }
 
   .pet-details, .distributor-details, .health-card-details {
-    width: 100%; /* Full width for small screens */
-    max-width: 100%; /* Ensure it takes up all available space */
+    width: 100%; 
+    max-width: 100%;
   }
 }
 
@@ -55,19 +54,19 @@
 /* Form Container */
 .adopt-form-container {
   display: flex;
-  flex-direction: column; /* Align the welcome message above the card */
+  flex-direction: column; 
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Full viewport height */
-  background-color: #333; /* Dark background */
-  padding: 40px; /* Padding for container */
+  min-height: 100vh; 
+  background-color: #333; 
+  padding: 40px; 
   width: 1500px;
 }
 
 /* Form container */
 .adopt-registration-card {
-  max-width: 650px; /* Limit form width */
-  width: 100%; /* Full width up to max */
+  max-width: 650px; 
+  width: 100%; 
   padding: 30px;
   background-color: #fff;
   border-radius: 10px;
@@ -90,7 +89,7 @@
   font-size: 40px;
   font-weight: bold;
   color: #2cbbc3;
-  margin-bottom: 20px; /* Space between welcome message and card */
+  margin-bottom: 20px; 
   text-align: center;
 }
 
@@ -100,8 +99,8 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  padding: 0 30px; /* Consistent padding */
-  width: 100%; /* Full width */
+  padding: 0 30px; 
+  width: 100%; 
 }
 
 /* Label styling */
@@ -110,7 +109,7 @@
   font-weight: 600;
   color: #555;
   text-align: left;
-  margin-right: 10px; /* Adjust for spacing */
+  margin-right: 10px; 
   width: 450px;
 }
 
@@ -128,7 +127,7 @@
   background-color: #f9f9f9;
   transition: border 0.3s ease;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  margin-left: 10px; /* Consistent margin */
+  margin-left: 10px; 
 }
 
 /* Input focus state */
@@ -140,7 +139,7 @@
 
 /* Submit button styling */
 .adopt-regi-submit {
-  width: calc(100% - 60px); /* Full width minus padding */
+  width: calc(100% - 60px); 
   padding: 10px;
   font-size: 16px;
   font-weight: bold;
@@ -150,16 +149,13 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin: 0 30px; /* Consistent margins */
+  margin: 0 30px; 
 }
 
 /* Button hover state */
 .adopt-regi-submit:hover {
   background-color: #1a8b8f;
 }
-
-
-
 
 /* Responsive Design */
 @media (max-width: 768px) {

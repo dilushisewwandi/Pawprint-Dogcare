@@ -27,7 +27,6 @@ const VetProfiles = () => {
 
   return (
     <div className="vet-profile-container">
-      {/* Hero section for the image and welcome message */}
       <div className="vet-hero-section">
         <div className="vet-welcome-message">
           <h1>Welcome to Our Veterinarians!</h1>
@@ -37,7 +36,6 @@ const VetProfiles = () => {
         </div>
       </div>
 
-      {/* Vet profile cards */}
       <div className="vet-card-container">
         {vetProfiles.map((vet) => (
           <div key={vet.vetID} className="vet-card">

@@ -24,7 +24,6 @@ const AllPetProfiles = () => {
 
     return (
         <div>
-            {/* Hero section */}
             <section className="hp-hero-section">
                 <div className="hp-hero-content">
                     <h1>Meet Our Pets and Explore Their Health Journeys</h1>
@@ -32,7 +31,6 @@ const AllPetProfiles = () => {
                 </div>
             </section>
 
-            {/* Pet profiles */}
             <div className="all-pet-profiles-container">
                 {pets.map((pet) => (
                     <PetProfile key={pet.petID} pet={pet} />

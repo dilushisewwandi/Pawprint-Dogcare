@@ -11,8 +11,8 @@ const SignupForm = () => {
         password: '',
         role: ''
     });
-    const [userID, setUserId] = useState(null); // State to hold user ID
-    const [showSignupForm, setShowSignupForm] = useState(false); // State to control form visibility
+    const [userID, setUserId] = useState(null); 
+    const [showSignupForm, setShowSignupForm] = useState(false); 
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -27,13 +27,17 @@ const SignupForm = () => {
             setUserId(response.data.userId);
             navigate('/login');
         } catch (err) {
-            console.error(err);
+            console.error("Error occurred during registration:", err);
+            if (err.response && err.response.data) {
+                alert(err.response.data);  // This will show the backend error message on the frontend
+            } else {
+                alert('An error occurred. Please try again.');
+            }
         }
     };
 
     return (
         <div className="signup-page-container">
-            {/* Hero Section on the Left */}
             <div className="signup-hero-section">
                 <div className="signup-hero-content">
                     <h1>Welcome to Pawprint</h1>
@@ -45,8 +49,7 @@ const SignupForm = () => {
                     )}
                 </div>
             </div>
-
-            {/* Signup form on the Right, displayed after clicking "Get Started" */}
+            
             {showSignupForm && (
                 <div className="signup-form-section">
                     <div className="signup-card">

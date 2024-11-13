@@ -38,7 +38,6 @@ function DaycareRegiForm() {
 
         if (response.ok) {
           alert(result.message || 'Daycare registered successfully');
-          // navigate('/daycare/dashboard');
         } else {
           alert(result.error || 'This user ID is wrong or already assigned. Please sign up.');
           navigate('/signup');
@@ -146,7 +145,6 @@ function DaycareRegiForm() {
               {errors.userID && <span className="text-danger">{errors.userID}</span>}
             </div>
 
-            {/* Additional inputs specific to daycare */}
             <div className="dc-form-group">
               <label htmlFor="openDays">Open Days</label>
               <input

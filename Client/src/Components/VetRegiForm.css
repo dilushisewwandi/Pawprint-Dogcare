@@ -2,16 +2,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Full viewport height */
-    background-color: #333; /* Dark background */
-    padding: 40px; /* Padding for container */
+    min-height: 100vh; 
+    background-color: #333; 
+    padding: 40px; 
 }
 
 /* General form container */
 .registration-card {
-    max-width: 550px; /* Limit form width */
-    width: 100%; /* Ensure form takes full width up to max-width */
-    margin: 0 auto; /* Center form */
+    max-width: 550px; 
+    width: 100%;
+    margin: 0 auto; 
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
@@ -42,8 +42,8 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    padding: 0 30px; /* Consistent padding on both sides */
-    width: 100%; /* Ensure full width */
+    padding: 0 30px; 
+    width: 100%; 
 }
 
 /* Label styling */
@@ -52,7 +52,7 @@
     font-weight: 600;
     color: #555;
     text-align: left;
-    margin-right: 10px; /* Adjust for consistent spacing */
+    margin-right: 10px; 
 }
 
 /* Input styling */
@@ -81,7 +81,7 @@
 
 /* Submit button styling */
 .vet-regi-submit[type="submit"] {
-    width: calc(100% - 60px); /* Full width minus equal padding on both sides */
+    width: calc(100% - 60px); 
     padding: 10px;
     font-size: 16px;
     font-weight: bold;
@@ -91,7 +91,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin: 0 30px; /* Consistent left and right margins */
+    margin: 0 30px; 
 }
 
 /* Button hover state */

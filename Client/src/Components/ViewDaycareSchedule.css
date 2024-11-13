@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #333; /* Dark background */
+    background-color: #333;
     padding: 40px;
 }
 
@@ -12,7 +12,7 @@
 .view-daycare-schedule .schedule-card {
     max-width: 800px;
     width: 100%;
-    background-color: #fff; /* White card for contrast */
+    background-color: #fff; 
     border-radius: 12px;
     padding: 40px;
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
@@ -104,14 +104,14 @@
     margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Space between cards */
+    gap: 20px; 
     justify-content: center;
 }
 
 /* Styling for individual schedule cards */
 .view-daycare-schedule .schedules-list li {
-    flex: 1 1 calc(50% - 20px); /* Two cards per row */
-    margin: 10px 0; /* Space above and below each card */
+    flex: 1 1 calc(50% - 20px); 
+    margin: 10px 0; 
     padding: 15px;
     background-color: #f8f8f8;
     border: 1px solid #e0e0e0;

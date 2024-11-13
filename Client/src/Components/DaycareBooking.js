@@ -27,7 +27,6 @@ const DaycareBooking = ({ daycareId }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
     
-        // Basic validation
         const newErrors = {};
         if (!bookingDetails.userID) newErrors.userID = 'User ID is required';
         if (!bookingDetails.name) newErrors.name = 'Name is required';
@@ -55,7 +54,7 @@ const DaycareBooking = ({ daycareId }) => {
         } catch (error) {
             if (error.response && error.response.status === 404) {
                 alert('User not found or User ID and Email do not match. Redirecting to signup.');
-                //window.location.href = '/signup'; // Redirect to signup page
+                window.location.href = '/signup'; 
             } else {
                 console.error('Error booking daycare:', error);
                 alert('Failed to book daycare. Please try again.');
@@ -66,7 +65,7 @@ const DaycareBooking = ({ daycareId }) => {
 
     return (
         <form onSubmit={handleSubmit} className="mt-3">
-<div className="form-group">
+                    <div className="form-group">
                         <label htmlFor="userID">User ID</label>
                         <input
                             type="text"

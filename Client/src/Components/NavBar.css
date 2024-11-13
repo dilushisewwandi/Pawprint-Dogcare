@@ -14,9 +14,6 @@ nav ul {
 }
 
 nav ul li {
-  /* display: inline-block;
-  margin-right: 20px;
-  position: relative;  */
   display: inline;
   margin-right: 40px;
 }

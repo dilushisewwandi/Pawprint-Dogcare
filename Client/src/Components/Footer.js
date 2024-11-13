@@ -11,7 +11,6 @@ function Footer() {
       <div className="footer-container">
         <div className="footer-row">
 
-          {/* Site Links Section */}
           <div className="footer-column">
             <h5 className="footer-title">Site Links</h5>
             <ul className="footer-links">
@@ -24,7 +23,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Contact Section */}
           <div className="footer-column">
             <h5 className="footer-title">Contact</h5>
             <p className="footer-contact">
@@ -32,7 +30,6 @@ function Footer() {
             </p>
           </div>
 
-          {/* Sign Up Section */}
           <div className="footer-column">
             <h5 className="footer-title">Sign Up</h5>
             <p>Become a member today and start adopting pets!</p>
@@ -40,7 +37,6 @@ function Footer() {
           </div>
         </div>
 
-        {/* Footer Bottom */}
         <div className="footer-bottom">
           <p>&copy; 2024 Pawprints. All Rights Reserved.</p>
         </div>

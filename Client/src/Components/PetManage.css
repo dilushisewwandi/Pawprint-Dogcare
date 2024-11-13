@@ -11,8 +11,8 @@
   
   /* Form card styling */
   .pet-management-container form {
-    width: 100%; /* Ensure the form takes the full width */
-    max-width: 550px; /* Match the distributor form's max width */
+    width: 100%; 
+    max-width: 550px;
     padding: 30px;
     background-color: #fff;
     border-radius: 10px;
@@ -22,10 +22,10 @@
   
   /* Form title */
   .pet-management-container h2 {
-    margin-top: 20px; /* Added top margin for consistency */
+    margin-top: 20px; 
     text-align: center;
-    font-size: 24px; /* Adjusted font size */
-    font-weight: bold; /* Added font weight */
+    font-size: 24px; 
+    font-weight: bold;
     margin-bottom: 20px;
     color: #2cbbc3;
   }
@@ -33,35 +33,35 @@
   /* Form row styling: Flexbox to align label and input */
   .form-row {
     display: flex;
-    justify-content: space-between; /* Adjust to space items evenly */
+    justify-content: space-between; 
     align-items: center;
-    margin-bottom: 20px; /* Increased bottom margin for consistency */
-    padding: 0 30px; /* Consistent padding on both sides */
-    width: 100%; /* Ensure full width */
+    margin-bottom: 20px;
+    padding: 0 30px; 
+    width: 100%; 
   }
   
   /* Label styling */
   .form-row label {
     font-size: 16px;
-    font-weight: 600; /* Added font weight for emphasis */
+    font-weight: 600; 
     color: #555;
-    text-align: left; /* Align text to the left */
-    margin-right: 10px; /* Consistent spacing */
-    width: 300px; /* Keep the width consistent */
+    text-align: left; 
+    margin-right: 10px;
+    width: 300px;
   }
   
   /* Input and select styling */
   .form-row input,
   .form-row select {
-    flex-grow: 1; /* Allow input fields to grow */
+    flex-grow: 1;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
     transition: border 0.3s ease;
-    margin-left: 10px; /* Consistent margin with other form */
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Optional shadow for input */
+    margin-left: 10px; 
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); 
   }
   
   /* Focus state for inputs */
@@ -73,17 +73,17 @@
   
   /* Submit button styling */
   .pet-management-container button[type="submit"] {
-    width: calc(100% - 60px); /* Full width minus equal padding on both sides */
+    width: calc(100% - 60px); 
     padding: 10px;
     font-size: 16px;
-    font-weight: bold; /* Added font weight for emphasis */
+    font-weight: bold;
     background-color: #2cbbc3;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin: 0 30px; /* Consistent left and right margins */
+    margin: 0 30px; 
   }
   
   /* Button hover state */

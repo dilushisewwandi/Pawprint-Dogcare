@@ -65,7 +65,6 @@ const ViewDaycareSchedule = () => {
                                 <li key={schedule.scheduleID}>
                                     <p><strong>Date of sheduled:</strong> {schedule.bookingDate}</p>
                                     <p><strong>Time of sheduled:</strong> {schedule.bookingTime}</p>
-                                    {/* <p><strong>Activity:</strong> {schedule.activity}</p> */}
                                 </li>
                             ))}
                         </ul>

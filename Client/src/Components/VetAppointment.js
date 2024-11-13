@@ -52,17 +52,12 @@ const VetAppointment = ({ vetId }) => {
         }
 
         try {
-            // Post the appointment data to the backend
             console.log('Booking appointment with vetID:', vetId);
-            await axios.post('http://localhost:8800/api/vet/bookAppointment', {
+            await axios.post('http://localhost:8800/api/vet/vetAppointment', {
                 ...appointmentDetails,
                 vetID: vetId,
             });
             
-            // Trigger a notification for successful vet booking
-            // addNotification('Vet appointment booked successfully!', 'VetBooking', 'vet');
-
-            // Optionally, set success message or navigate to another page
             setSuccessMessage('Appointment booked successfully!');
         } catch (error) {
             console.error('Error booking vet appointment:', error);
@@ -84,8 +79,7 @@ const VetAppointment = ({ vetId }) => {
                 {Object.keys(errors).map((key) => (
                     <p key={key} className="text-danger">{errors[key]}</p>
                 ))}
-                {/* Form fields */}
-                {/* Pet Name */}
+            
                 <div className="form-group">
                     <label htmlFor="petName">Pet Name</label>
                     <input
@@ -99,7 +93,7 @@ const VetAppointment = ({ vetId }) => {
                         className="form-control rounded"
                     />
                 </div>
-                {/* Pet Age */}
+           
                 <div className="form-group">
                     <label htmlFor="petAge">Pet Age</label>
                     <input
@@ -113,7 +107,7 @@ const VetAppointment = ({ vetId }) => {
                         className="form-control rounded"
                     />
                 </div>
-                {/* Pet Breed */}
+       
                 <div className="form-group">
                     <label htmlFor="breed">Pet Breed</label>
                     <input
@@ -127,7 +121,7 @@ const VetAppointment = ({ vetId }) => {
                         className="form-control rounded"
                     />
                 </div>
-                {/* Reason */}
+   
                 <div className="form-group">
                     <label htmlFor="reason">Reason</label>
                     <input
@@ -142,7 +136,7 @@ const VetAppointment = ({ vetId }) => {
                     />
                     
                 </div>
-                {/* User ID */}
+     
                 <div className="form-group">
                     <label htmlFor="userID">User ID</label>
                     <input
@@ -156,7 +150,7 @@ const VetAppointment = ({ vetId }) => {
                         className="form-control rounded"
                     />
                 </div>
-                {/* User Name */}
+      
                 <div className="form-group">
                     <label htmlFor="name">Your Name</label>
                     <input
@@ -170,7 +164,7 @@ const VetAppointment = ({ vetId }) => {
                         className="form-control rounded"
                     />
                 </div>
-                {/* Phone */}
+       
                 <div className="form-group">
                     <label htmlFor="phone">Phone Number</label>
                     <input
@@ -184,7 +178,7 @@ const VetAppointment = ({ vetId }) => {
                         className="form-control rounded"
                     />
                 </div>
-                {/* Email */}
+       
                 <div className="form-group">
                     <label htmlFor="email">Email Address</label>
                     <input
@@ -198,7 +192,7 @@ const VetAppointment = ({ vetId }) => {
                         className="form-control rounded"
                     />
                 </div>
-                {/* Appointment Date */}
+
                 <div className="form-group">
                     <label htmlFor="appointmentDate">Appointment Date</label>
                     <input
@@ -211,7 +205,7 @@ const VetAppointment = ({ vetId }) => {
                         className="form-control rounded"
                     />
                 </div>
-                {/* Appointment Time */}
+
                 <div className="form-group">
                     <label htmlFor="appointmentTime">Appointment Time</label>
                     <input

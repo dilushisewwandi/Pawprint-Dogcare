@@ -5,7 +5,7 @@ import './DaycareManage.css';
 const DaycareManage = ({ formType }) => {
     const [daycareFormData, setDaycareFormData] = useState({
         dcID: '',
-        userID: '', // Added userID to the state
+        userID: '', 
         dcName: '',
         dcLocation: '',
         dcPhone: '',
@@ -52,7 +52,7 @@ const DaycareManage = ({ formType }) => {
     
             setDaycareFormData({
                 dcID: '',
-                userID: '', // Reset userID here
+                userID: '', 
                 dcName: '',
                 dcLocation: '',
                 dcPhone: '',
@@ -74,7 +74,7 @@ const DaycareManage = ({ formType }) => {
 
         try {
             const response = await axios.delete(`http://localhost:8800/api/daycareManage/delete/${daycareToDelete}`);
-            alert(response.data);
+            alert(response.data.message);
         } catch (error) {
             console.error("Error:", error);
             alert(`An error occurred: ${error.message}`);

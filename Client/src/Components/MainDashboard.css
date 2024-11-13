@@ -5,8 +5,7 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 20px;
-    min-height: calc(100vh - 100px); /* Adjust for header and footer */
-    /* background-color: #555; */
+    min-height: calc(100vh - 100px); 
 }
 
 

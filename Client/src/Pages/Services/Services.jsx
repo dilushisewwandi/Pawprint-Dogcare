@@ -18,7 +18,6 @@ function Services() {
     <div className='services-page-container'>
       <div className='services-page-section' id='service'>
        
-        
         {/* Find a Pet Service */}
         <div className='services-page-content'>
           <div className="services-image-frame">

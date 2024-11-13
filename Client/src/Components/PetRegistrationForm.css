@@ -39,9 +39,9 @@ form {
 }
 
 .form-group {
-  flex: 1 1 calc(50% - 20px); /* Adjust percentage to control width of each column and add space between columns */
+  flex: 1 1 calc(50% - 20px); 
   margin-bottom: 20px;
-  min-width: 200px; /* Ensure form group doesn't get too small */
+  min-width: 200px; 
 }
 
 label {

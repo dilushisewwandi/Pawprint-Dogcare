@@ -39,6 +39,7 @@ const PetProfile = () => {
         try {
             const registerResponse = await axios.post('http://localhost:8800/api/adopterRegi/register', {
                 userID,
+                petID,
                 adoName,
                 adoNIC,
                 adoAge,
@@ -101,6 +102,7 @@ const PetProfile = () => {
             />
             <div className="pet-details">
                 <h2>{pet.petName}</h2>
+                <p><strong>Pet ID:</strong> {pet.petID}</p>
                 <p><strong>Breed:</strong> {pet.petBreed}</p>
                 <p><strong>Age:</strong> {pet.petAge} months</p>
                 <p><strong>Gender:</strong> {pet.petGender}</p>
@@ -137,6 +139,15 @@ const PetProfile = () => {
                                 type="text"
                                 value={userID}
                                 onChange={(e) => setUserID(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="adopt-form-group">
+                            <label>Pet ID</label>
+                            <input
+                                type="text"
+                                value={petID}
+                                readOnly
                                 required
                             />
                         </div>

@@ -10,9 +10,9 @@
 
   @keyframes fadeIn {
     from {
-      opacity: 0; /* Start with no opacity */
+      opacity: 0; 
     }
     to {
-      opacity: 1; /* End with full opacity */
+      opacity: 1;
     }
   }

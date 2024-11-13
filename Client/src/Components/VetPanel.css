@@ -43,16 +43,16 @@
 /* Circular Card Styles */
 .vetPanel-card {
     background-color: white;
-    border-radius: 50%; /* Make the card circular */
-    width: 300px;       /* Ensure same size as image */
-    height: 300px;      /* Ensure same size as image */
+    border-radius: 50%; 
+    width: 300px;       
+    height: 300px;      
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
 
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin-bottom: 30px; /* Space between card and button */
+    margin-bottom: 30px;
 }
 
 /* Circular Image inside the card */
