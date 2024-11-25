@@ -6,7 +6,6 @@
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Usage](#usage)
-- [Installation](#installation)
 - [Contact](#contact)
 
 ## Description
@@ -55,11 +54,6 @@ Pawprint is a comprehensive web-based application designed to meet the diverse n
   - Track shedules and bookings.
   - Monitor pet activities while in care.
   
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/dilushisewwandi/Pawprint-Dogcare.git
-
 ## Contact
 For questions, please contact:
 - **Name**: Dilushika Sewwandi
