@@ -19,7 +19,7 @@ Pawprint is a comprehensive web-based application designed to meet the diverse n
 - **Secure Login and Registration:** JWT-based authentication to ensure secure access.
 
 ## Technologies Used
-- **Frontend:** React, HTML, CSS
+- **Frontend:** React, JavaScript, CSS
 - **Backend:** Node.js, Express.js
 - **Authentication:** JWT (JSON Web Tokens)
 - **Database:** MySQL
