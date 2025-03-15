@@ -1,4 +1,4 @@
-.daycare-profile-container {
+/* .daycare-profile-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,7 +6,7 @@
     min-height: 100vh;
   }
   
-  /* Hero section with image and welcome message */
+  
   .dc-hero-section {
     width: 100%;
     height: 400px; 
@@ -40,7 +40,7 @@
     color: aliceblue;
   }
   
-  /* Flex container to display daycare cards in rows */
+  
   .daycare-card-container {
     display: flex;
     flex-wrap: wrap;
@@ -50,8 +50,7 @@
     margin: 0 auto;
     margin-bottom: 40px;
   }
-  
-  /* Daycare card styles */
+
   .daycare-card {
     display: flex;
     flex-direction: column;
@@ -74,10 +73,147 @@
     color: #333;
   }
   
-  /* Responsive design */
+
   @media (max-width: 768px) {
     .daycare-card {
       width: 100%;
     }
   }
+    */
   
+  /* Hero Section */
+.dc-hero-section {
+  background-image: url('../Assets/pet groom.jpg'); 
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+ 
+}
+
+.dc-welcome-message {
+  max-width: 900px;
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  margin-top: 100px;
+  padding: 30px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.dc-welcome-message h1 {
+  font-size: 45px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.dc-welcome-message p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: white;
+  font-weight:normal;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.search-bar input {
+  padding: 10px;
+  font-size: 16px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Daycare Card Container */
+.daycare-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: #fff;
+}
+
+/* Daycare Cards */
+.daycare-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.daycare-card {
+  background: white;
+  width: 350px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.daycare-card:hover {
+  transform: translateY(-5px);
+}
+
+.daycare-details h2 {
+  font-size: 22px;
+  color: #333;
+}
+
+.daycare-details p {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* Booking Button */
+.btn-primary {
+  background-color: #2cbbc3;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background 0.3s ease-in-out;
+}
+
+/* .btn-primary:hover {
+  background-color: #cc5500;
+} */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-bar input {
+    width: 100%;
+  }
+
+  .daycare-card {
+    width: 100%;
+  }
+
+  .dc-hero-section {
+    height: 400px;
+  }
+
+  .dc-welcome-message h1 {
+    font-size: 35px;
+  }
+
+  .dc-welcome-message p {
+    font-size: 16px;
+  }
+}

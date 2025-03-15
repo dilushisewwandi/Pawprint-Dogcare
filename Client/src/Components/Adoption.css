@@ -40,6 +40,55 @@
   
 }
 
+/* Search Bar Styling */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input,
+.search-bar select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 200px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-bar input::placeholder {
+  color: #999;
+}
+
+.search-bar input:focus,
+.search-bar select:focus {
+  border-color: #2cbbc3;
+  box-shadow: 0 0 5px rgba(44, 187, 195, 0.5);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .search-bar input,
+  .search-bar select {
+    width: 90%;
+  }
+}
+
+
 /* Pet cards section */
 .adoption-pet-cards {
   display: grid;

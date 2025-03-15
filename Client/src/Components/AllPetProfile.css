@@ -1,4 +1,4 @@
-.hp-hero-section {
+ .hp-hero-section {
   background-image: url('../Assets/vet1.jpg');
   background-size: cover;
   background-position: center;
@@ -72,3 +72,7 @@ color: white;
 .pet-details h2{
   font-size: 40px;
  }
+
+
+
+ 

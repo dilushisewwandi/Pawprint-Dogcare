@@ -54,11 +54,6 @@ Pawprint is a comprehensive web-based application designed to meet the diverse n
   - Create daycare accounts.
   - Track shedules and bookings.
   - Monitor pet activities while in care.
-  
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/dilushisewwandi/Pawprint-Dogcare.git
 
 ## Contact
 For questions, please contact:
